@@ -11,5 +11,5 @@
 
 	mysql_select_db($nome_banco, $conecta) or die ("Erro ao conexaor ao banco");
 	*/
-	$conexao = mysqli_connect('localhost', 'root', '', 'oficina');
+	$conexao = mysqli_connect('localhost', 'root', '', 'helpdesk');
 ?>

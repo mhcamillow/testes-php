@@ -2,8 +2,8 @@
     require_once('cabecalho.php');
     require_once('Config/controleUsuario.php');
 ?>
-<?php if(usuarioEstaLogado()) { 
-    header("Location: ".SCRIPT_ROOT."/consulta/Usuarios.php");
+<?php if(usuarioEstaLogado()) {
+    header("Location: ".SCRIPT_ROOT."/consulta/Chamados.php");
 } else { ?>
 <div class="container">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
@@ -16,21 +16,21 @@
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
                 <form id="loginform" action="login.php" class="form-horizontal" role="form" method="post">
-                    
+
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <input id="login" type="text" class="form-control" name="login" value="" placeholder="Usuário">
                     </div>
-                    
+
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input type="password" class="form-control" name="password" placeholder="Senha">
                     </div>
-                    
+
                     <div style="margin-top:10px" class="form-group">
                         <!-- Button -->
                         <div class="col-sm-12 controls">
-                            <button class="btn btn-success" type="submit">Entrar  </button>  
+                            <button class="btn btn-success" type="submit">Entrar  </button>
                             <!--<a type="submit" id="btn-login" class="btn btn-success">Entrar   </a>-->
                         </div>
                     </div>
@@ -93,13 +93,13 @@
                             <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Cadastrar</button>
                         </div>
                     </div>
-                    
+
                 </form>
             </div>
         </div>
-        
-        
-        
+
+
+
     </div>
 </div>
 <?php } ?>

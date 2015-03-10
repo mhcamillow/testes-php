@@ -1,5 +1,6 @@
 <?php
-		require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/barraDeNavegacao.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/Usuario.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 		verificaUsuario();

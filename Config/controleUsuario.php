@@ -9,7 +9,7 @@
 	function verificaUsuario() {
       	if (!usuarioEstaLogado()) {
       		$_SESSION['danger'] = "Você não tem acesso.";
-		  	header("Location: index.php");
+		  	header("Location: ".SCRIPT_ROOT."/index.php");
 		  	die();
 	  	}	
     }

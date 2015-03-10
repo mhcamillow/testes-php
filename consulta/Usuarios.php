@@ -5,8 +5,6 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');      
 
 	verificaUsuario();  
-
-	echo $_SESSION['usuario_logado'];
 ?>
 
 <h1>Usuários</h1>

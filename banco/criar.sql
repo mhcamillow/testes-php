@@ -48,7 +48,8 @@ CREATE TABLE F061ARE #Area (dentro do departamento)
    );
 
 CREATE TABLE F114CAB #Cabeçalho do chamado
-   (	CODATN INT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   (
+   	CODATN INT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	CODCLI INT(8), # cliente
 	CODATE INT(8), # atendente (fica nulo ate alguem atender)
 	CODUSU INT(8) NOT NULL, #usuario que abriu / mesmo que o cliente
@@ -57,7 +58,7 @@ CREATE TABLE F114CAB #Cabeçalho do chamado
 	CODARE INT(8), #nulo
 	DATGER DATE NOT NULL, # data geração
 	SITATN INT(2) NOT NULL, # 1 aberto 2 em andamento 3 aguardando aceite 4 finalizado 5 reaberto
-	DATPRV DATE, #atendente define
+	DATPRV DATE, # atendente define
 	DATATU DATE, # muda nas atualização de mensagem
 	DATFIM DATE, # muda ao finalizar
 	CODGRP INT(8), # nulo

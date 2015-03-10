@@ -59,8 +59,3 @@
 		}
 	?>
 </table>
-<!--
-<div class="text-right">
-	<a href="relatorio/RelatorioConsultasPdf.php" class="btn btn-success btn-lg">Relatório</a>
-</div>
--->

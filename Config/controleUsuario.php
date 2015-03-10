@@ -20,8 +20,8 @@
 
     function logaUsuario($login, $codusu, $tipusu) {
     	$_SESSION['usuario_logado'] = $login;
-			$_SESSION['tipo_usuario']	  = $tipusu;
-			$_SESSION['codigo_usuario'] = $codusu;
+		$_SESSION['tipo_usuario']	  = $tipusu;
+		$_SESSION['codigo_usuario'] = $codusu;
     }
 
 		function tipoUsuario(){

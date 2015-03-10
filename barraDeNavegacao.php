@@ -1,3 +1,7 @@
+<?php 
+require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php'); 
+?>
+
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -25,12 +29,14 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Consultas <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><a href="<?=SCRIPT_ROOT?>/consulta/usuarios.php">Usuário</a></li>
+						<li><a href="<?=SCRIPT_ROOT?>/consulta/Chamados.php">Chamado</a></li>
 						<!--<li><a href="#">Cliente</a></li>
 						<li><a href="#">Veículo</a></li> -->
 					</ul>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
+				<p class="navbar-text">Logado como <?php echo $_SESSION['usuario_logado'] ?></p>
 				<li><a href="<?=SCRIPT_ROOT?>/Config/Logout.php">Logout</a></li>
 			</ul>
 

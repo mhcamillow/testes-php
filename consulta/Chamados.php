@@ -5,15 +5,18 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 
 	verificaUsuario();
+
 ?>
 
 <h1>Help Desk</h1>
 <table class="table table-striped table-bordered">
   <th>Código</th>
 	<th>Natureza</th>
-	<th>Departamento</th>
-  <th>Área</th>
-  <th>Atendente</th>
+  <th><?php if (tipoUsuario() = 'C')
+    echo "Atendente"
+  else
+    echo "Cliente"
+  ?></th>
   <th>Situação</th>
   <th>Geração</th>
   <th>Atualização</th>
@@ -25,16 +28,29 @@
 		foreach($chamados as $chamados) {
 	?>
 		<tr>
-			<td><?= $f114cab['codatn'] ?></td>
-      <td><?= $f114cab['natatn'] ?></td>
-			<td><?= $f114cab['coddep'] ?></td>
-      <td><?= $f114cab['codare'] ?></td>
-      <td><?= $f114cab['codate'] ?></td>
-      <td><?= $f114cab['sitatn'] ?></td>
-      <td><?= $f114cab['datger'] ?></td>
-      <td><?= $f114cab['datprv'] ?></td>
-      <td><?= $f114cab['datatu'] ?></td>
-      <td><?= $f114cab['datatu'] ?></td>
+      <td><?= $chamados['codatn'] ?></td>
+      <td><?php switch ($chamados['natatn']){
+                case 1: echo "Dúvida"; break;
+                case 2: echo "Erro"; break;
+                case 3: echo "Exigência Legal"; break;
+                case 4: echo "Implantação"; break;
+                case 5: echo "Implementação"; break;
+                case 6: echo "Serviço"; break;
+                case 7: echo "Sugestão"; break;
+                case 8: echo "Treinamento"; break;
+              } ?></td>
+      <td><?= $chamados['codigo'] ?></td>
+      <td><?php switch ($chamados['sitatn']){
+                case 1: echo "Aberto"; break;
+                case 2: echo "Em Andamento"; break;
+                case 3: echo "Aguardando Aceite"; break;
+                case 4: echo "Finalizado"; break;
+                case 5: echo "Reaberto"; break;
+              } ?></td>
+      <td><?= $chamados['datger'] ?></td>
+      <td><?= $chamados['datprv'] ?></td>
+      <td><?= $chamados['datatu'] ?></td>
+      <td><?= $chamados['datfim'] ?></td>
 
       <td>
 				<a href="DetalheChamado.php?id=<?php echo($chamados['codatn']);?>&acao=consultar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>

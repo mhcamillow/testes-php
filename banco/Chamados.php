@@ -11,10 +11,11 @@
     $tipusu = $_GET['tip'];
 
 	function listaChamados($conexao) {
-    $sql = "select codatn, natatn, coddep, codare, codate, sitatn, datger, datprv, datatu, datfim from f114cab where 1=1";
-    if (($codusu <> 0) and ($tipusu = 'C')){
-      $sql = $sql + " and codcli='$codusu'";
-    }
+
+    if ($tipusu = 'C')
+			$sql = "select codatn, natatn, coddep, codare, codate as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codcli='$codusu'";
+		elseif ($tipusu= 'D')
+			$sql = "select codatn, natatn, coddep, codare, codcli as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codate='$codusu'";
 		$consultas = array();
 		$resultado = mysqli_query($conexao, $sql);
 

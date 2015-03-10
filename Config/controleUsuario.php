@@ -1,5 +1,5 @@
 <?php
-	
+
 	session_start();
 
 	function usuarioEstaLogado() {
@@ -11,7 +11,7 @@
       		$_SESSION['danger'] = "Você não tem acesso.";
 		  	header("Location: ".SCRIPT_ROOT."/index.php");
 		  	die();
-	  	}	
+	  	}
     }
 
     function usuarioLogado() {
@@ -21,6 +21,14 @@
     function logaUsuario($login) {
     	$_SESSION['usuario_logado'] = $login;
     }
+
+		function tipoUsuario(){
+			return $_SESSION['tipo_usuario'];
+		}
+
+		function setaTipoUsuario($tipusu){
+			$_SESSION['tipo_usuario'] = $tipusu;
+		}
 
     function logout() {
     	session_destroy();

@@ -49,39 +49,31 @@ CREATE TABLE F061ARE #Area (dentro do departamento)
 
 CREATE TABLE F114CAB #Cabeçalho do chamado
    (	CODATN INT(8) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	CODCLI INT(8) NOT NULL,
-	CODATE INT(8) NOT NULL,
-	CODUSU INT(8) NOT NULL,
-	NIVPRI INT(4),
-	CODDEP INT(8) NOT NULL,
-	CODARE INT(8) NOT NULL,
-	DATGER DATE NOT NULL,
+	CODCLI INT(8), # cliente
+	CODATE INT(8), # atendente (fica nulo ate alguem atender)
+	CODUSU INT(8) NOT NULL, #usuario que abriu / mesmo que o cliente
+	NIVPRI INT(4), # prioridade (atendente define) # 1 baixo 2 medio 3 alto
+	CODDEP INT(8), #nulo
+	CODARE INT(8), #nulo
+	DATGER DATE NOT NULL, # data geração
 	SITATN INT(2) NOT NULL, # 1 aberto 2 em andamento 3 aguardando aceite 4 finalizado 5 reaberto
-	DATPRV DATE,
-	DATATU DATE,
-	DATFIM DATE,
-	CODGRP INT(8) NOT NULL,
-	NATATN INT(2), # 1 duvida 2 erro 3 exigencia legal 4 implantação 5 implementação 6 serviço 7 sugestão 8 treinamento
-	 CONSTRAINT IRF11004 FOREIGN KEY (CODUSU)
-	  REFERENCES F999CPL (CODUSU),
-	 CONSTRAINT IRF11002 FOREIGN KEY (CODCLI)
-	  REFERENCES F999CPL (CODUSU),
-	 CONSTRAINT IRF11001 FOREIGN KEY (CODDEP)
-	  REFERENCES F061DEP (CODDEP),
-	 CONSTRAINT IRF11000 FOREIGN KEY (CODARE)
-	  REFERENCES F061ARE (CODARE)
+	DATPRV DATE, #atendente define
+	DATATU DATE, # muda nas atualização de mensagem
+	DATFIM DATE, # muda ao finalizar
+	CODGRP INT(8), # nulo
+	NATATN INT(2) # 1 duvida 2 erro 3 exigencia legal 4 implantação 5 implementação 6 serviço 7 sugestão 8 treinamento
    );
 
 CREATE TABLE F114MSG #Mensagem do chamado
-   (	CODATN INT(8) NOT NULL,
-	SEQATN INT(4) NOT NULL,
-	DESATN VARCHAR(1000),
-	CODCLI INT(8) NOT NULL,
-	CODATE INT(8) NOT NULL,
-	SITATN INT(2) NOT NULL,
-	DATATU DATE,
-	CODUSU INT(8) NOT NULL,
-	NIVPRI INT(4),
+   (	CODATN INT(8) NOT NULL, # codigo chamado
+	SEQATN INT(4) NOT NULL, #sequencia mensagem (1 ao abrir)
+	DESATN VARCHAR(1000), #descricao
+	CODCLI INT(8) NOT NULL, # cliente (quando a mensagem é o cliente que fez grava aqui senao é 0)
+	CODATE INT(8) NOT NULL, # atendente (ao abrir é 0)
+	SITATN INT(2) NOT NULL, # 1 aberto 2 em andamento 3 aguardando aceite 4 finalizado 5 reaberto
+	DATATU DATE, #data atualização
+	CODUSU INT(8) NOT NULL, # usuario
+	NIVPRI INT(4), # 1 baixo 2 medio 3 alto
 	 CONSTRAINT CP_F114MSG PRIMARY KEY (CODATN, SEQATN),
 	 CONSTRAINT IRF11005 FOREIGN KEY (CODATN)
 	  REFERENCES F114CAB (CODATN)

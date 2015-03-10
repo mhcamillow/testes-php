@@ -5,11 +5,10 @@
 
 		$senhaMd5 = md5($senha);
 		$login = mysqli_real_escape_string($conexao, $login); // Tratamento de aspas no sql
-		
-		$query = "select nomusu as login from f999cpl where nomusu = '$login' and senusu = '$senhaMd5'";
+
+		$query = "select nomusu as login, tipusu, codusu from f999cpl where nomusu = '$login' and senusu = '$senhaMd5'";
 		$resultado = mysqli_query($conexao, $query);
 		return mysqli_fetch_assoc($resultado);
-		
 	}
 
 	function buscaUsuarioPorCodigo($conexao, $codusu) {
@@ -26,6 +25,7 @@
 		return mysqli_query($conexao, $query);
 	}
 
+<<<<<<< HEAD
 	function listaUsuarios($conexao) {
 		$sql = "select codusu, nomcom, nomusu, tipusu, emausu, datnas from f999cpl";
 		$usuarios = array();
@@ -51,3 +51,6 @@
 	
  
 ?>
+=======
+?>
+>>>>>>> b62a654334e05fb3a48bde201bc1e11abafeda58

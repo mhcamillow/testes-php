@@ -20,10 +20,14 @@
 		$_SESSION['success'] = "Usuário logado com sucesso..";
 		logaUsuario($usuario['login']);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		header("Location: consulta/Usuarios.php?");
 =======
 		header("Location: consulta/Chamados.php?");
 >>>>>>> origin/master
+=======
+		header("Location: consulta/Chamados.php?id=".$usuario['codusu']."&tip=".$usuario['tipusu']);
+>>>>>>> b62a654334e05fb3a48bde201bc1e11abafeda58
 	}
 
 	die();

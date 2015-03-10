@@ -12,9 +12,9 @@
 
 	function listaChamados($conexao) {
 
-    if ($tipusu = 'C')
+    if ($tipusu == 'C')
 			$sql = "select codatn, natatn, coddep, codare, codate as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codcli='$codusu'";
-		elseif ($tipusu= 'D')
+		elseif ($tipusu == 'D')
 			$sql = "select codatn, natatn, coddep, codare, codcli as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codate='$codusu'";
 		$consultas = array();
 		$resultado = mysqli_query($conexao, $sql);

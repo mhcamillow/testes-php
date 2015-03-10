@@ -25,7 +25,6 @@
 		return mysqli_query($conexao, $query);
 	}
 
-<<<<<<< HEAD
 	function listaUsuarios($conexao) {
 		$sql = "select codusu, nomcom, nomusu, tipusu, emausu, datnas from f999cpl";
 		$usuarios = array();
@@ -48,9 +47,4 @@
 		return mysqli_query($conexao, $query);
 	}
 
-	
- 
 ?>
-=======
-?>
->>>>>>> b62a654334e05fb3a48bde201bc1e11abafeda58

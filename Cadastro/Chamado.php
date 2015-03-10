@@ -17,6 +17,7 @@
 	$datatu = $_POST['datatu'];
 	$datfim = $_POST['datfim'];
 	$natatn = $_POST['natatn'];
+	$desatn = $_POST['desatn'];
 		
 
 	if (isset($_GET['acao']))
@@ -36,7 +37,7 @@
 	} else {
 		if ($codatn != '')
 		{
-			if (alteraChamado($conexao, $codatn, $codcli, $codate, $codusu, $nivpri, 
+			if (alteraChamado($conexao, $codcli, $codate, $codusu, $nivpri,
 								$datger, $sitatn, $datprv, $datatu, $datfim, $natatn)){
 				$_SESSION['success'] = "Alterado com sucesso!";
 			}
@@ -45,9 +46,13 @@
 				echo mysql_error();
 			}
 		} else {
-			if (insereChamado($conexao, $codatn, $codcli, $codate, $codusu, $nivpri, 
-								$datger, $sitatn, $datprv, $datatu, $datfim, $natatn)){
-				$_SESSION['success'] = "Inserido com sucesso!";
+			if (insereChamado($conexao, $codcli, $codusu, $natatn)){
+				if (insereMensagemInicial($conexao, $desatn, $codusu, $codcli, $natatn)) {
+					$_SESSION['success'] = "Inserido com sucesso!";
+				}
+				else {
+					$_SESSION['danger'] = "Erro ao inserir mensagem!";
+				}
 			}
 			else {
 				$_SESSION['danger'] = "Erro ao inserir!";

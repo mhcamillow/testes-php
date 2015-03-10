@@ -19,10 +19,9 @@
 		return $consultas;
 	}
 
-	function insereChamado($conexao, $codatn, $codcli, $codate, $codusu, $nivpri,
-								$datger, $sitatn, $datprv, $datatu, $datfim, $natatn) {
-		$query = "insert into f114cab (codatn, codcli, codate, codusu, nivpri, datger, sitatn, datprv, datatu, datfim, natatn)
-					values (null, '$codcli', '$codate', '$codusu', '$nivpri', '$datger', '$sitatn', '$datprv', '$datatu', '$datfim', '$natatn')";
+	function insereChamado($conexao, $codcli, $codusu, $natatn) {
+		$query = "insert into f114cab (codatn, codcli, codusu, datger, sitatn, natatn)
+					values (null, '$codcli',  '$codusu', SYSDATE(), '1', '$natatn')";
 		return mysqli_query($conexao, $query);
 	}
 
@@ -48,18 +47,26 @@
 		return mysqli_query($conexao, $query);
 	}
 
-	/*
-	function buscaConsulta($conexao, $id_consulta) {
-		$query = "select * from consulta where id_consulta = '$id_consulta'";
-		$resultado = mysqli_query($conexao, $query);
+	function getUltimoChamado($conexao, $codcli, $codusu, $natatn){
+		$sql = "select codatn, sitatn, nivpri
+				from f114cab 
+				where codcli = '$codusu'
+				  and codusu = '$codusu'
+				  and natatn = '$natatn'";
+		$resultado = mysqli_query($conexao, $sql);
 		return mysqli_fetch_assoc($resultado);
 	}
 
-	function buscaConsultaPaciente($conexao, $id_paciente) {
-		$query = "select * from paciente where id_paciente = '$id_paciente'";
-		$resultado = mysqli_query($conexao, $query);
-		return mysqli_fetch_assoc($resultado);
-	}
+	function insereMensagemInicial($conexao, $desatn, $codusu, $codcli, $natatn) {
 
-	*/
+		$chamado = getUltimoChamado($conexao, $codcli, $codusu, $natatn);
+
+		$codatn = $chamado['codatn'];
+		$sitatn = $chamado['sitatn'];
+		$nivpri = $chamado['nivpri'];
+
+		$query = "insert into f114msg (codatn, seqatn, desatn, codcli, codate, sitatn, datatu, codusu, nivpri)
+					values ('$codatn', '1', '$desatn', '$codcli', '0', '$sitatn', sysdate(), '$codusu', '$nivpri')";
+		return mysqli_query($conexao, $query);
+	}
 ?>

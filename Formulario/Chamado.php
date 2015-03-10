@@ -46,46 +46,46 @@
 
 				<form action="<?=SCRIPT_ROOT?>/cadastro/Chamado.php" class="form-horizontal" method="post">
 
-					<div class="form-group">
+					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Código do chamado</label>
 						<div class="col-sm-8">
 							<input type="number" name="codatn" class="form-control" readonly value="<?=$chamado['codatn']?>">
 						</div>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Código do atendente</label>
 						<div class="col-sm-8">
 							<input type="number" name="codate" class="form-control" readonly value="<?=$chamado['codate']?>">
 						</div>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Cliente</label>
 						<div class="col-sm-8">
 							<input type="number" name="codcli" class="form-control" value="<?=$chamado['codcli']?>">
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Usuário</label>
 						<div class="col-sm-8">
 							<input type="number" name="codusu" class="form-control" value="<?=$chamado['codusu']?>">
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Prioridade</label>
 						<div class="col-sm-8">
 							<input type="number" name="nivpri" class="form-control" value="<?=$chamado['nivpri']?>">
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Data da Geração</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" name="datger" placeholder="DD/MM/YYYY" value="<?=$chamado['datger']?>">
 						</div>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Situação</label>
 						<div class="col-sm-8">
 							<select name="sitatn" class="form-control">
@@ -98,21 +98,21 @@
 						</div>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Previsão</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" name="datprv" placeholder="DD/MM/YYYY" value="<?=$chamado['datprv']?>">
 						</div>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Última movimentação</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" name="datatu" placeholder="DD/MM/YYYY" value="<?=$chamado['datatu']?>">
 						</div>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Finalização</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" name="datfim" placeholder="DD/MM/YYYY" value="<?=$chamado['datfim']?>">
@@ -120,7 +120,7 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-3 control-label">Situação</label>
+						<label class="col-sm-3 control-label">Natureza</label>
 						<div class="col-sm-8">
 							<select name="natatn" class="form-control">
 								<option value="1" <?php if ($chamado['natatn'] == 1) echo "selected"; ?>>Dúvida </option>
@@ -132,6 +132,13 @@
 								<option value="7" <?php if ($chamado['natatn'] == 7) echo "selected"; ?>>Sugestão </option>
 								<option value="8" <?php if ($chamado['natatn'] == 8) echo "selected"; ?>>Treinamento </option>
 							</select>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Descrição</label>
+						<div class="col-sm-8">
+							<textarea class="form-control" rows="3" name="desatn" placeholder="Descreva o motivo do chamado" required></textarea>
 						</div>
 					</div>
 

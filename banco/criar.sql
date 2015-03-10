@@ -56,12 +56,12 @@ CREATE TABLE F114CAB #Cabeçalho do chamado
 	CODDEP INT(8) NOT NULL,
 	CODARE INT(8) NOT NULL,
 	DATGER DATE NOT NULL,
-	SITATN INT(2) NOT NULL,
+	SITATN INT(2) NOT NULL, # 1 aberto 2 em andamento 3 aguardando aceite 4 finalizado 5 reaberto
 	DATPRV DATE,
 	DATATU DATE,
 	DATFIM DATE,
 	CODGRP INT(8) NOT NULL,
-	NATATN INT(2),
+	NATATN INT(2), # 1 duvida 2 erro 3 exigencia legal 4 implantação 5 implementação 6 serviço 7 sugestão 8 treinamento
 	 CONSTRAINT IRF11004 FOREIGN KEY (CODUSU)
 	  REFERENCES F999CPL (CODUSU),
 	 CONSTRAINT IRF11002 FOREIGN KEY (CODCLI)

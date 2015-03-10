@@ -10,9 +10,8 @@
 		header("Location: index.php");
 	} else {
 		$_SESSION['success'] = "Usuário logado com sucesso..";
-		logaUsuario($usuario['login']);
-		setaTipoUsuario($usuario['tipusu']);
-		header("Location: consulta/Chamados.php?id=".$usuario['codusu']."&tip=".$usuario['tipusu']);
+		logaUsuario($usuario['login'], $usuario['codusu'], $usuario['tipusu']);
+		header("Location: consulta/Chamados.php?");
 	}
 
 	die();

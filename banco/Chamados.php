@@ -1,18 +1,11 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/conexao.php');
-
-  $codusu = "";
-  $tipusu  = "";
-
-  if (isset ($_GET['user']))
-    $codusu = $_GET['user'];
-
-  if (isset ($_GET['tip']))
-    $tipusu = $_GET['tip'];
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 
 	function listaChamados($conexao) {
+		$codusu = codigoUsuario();
 
-    if ($tipusu == 'C')
+    if (tipoUsuario() == 'C')
 			$sql = "select codatn, natatn, coddep, codare, codate as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codcli='$codusu'";
 		elseif ($tipusu == 'D')
 			$sql = "select codatn, natatn, coddep, codare, codcli as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codate='$codusu'";
@@ -25,10 +18,10 @@
 
 		return $consultas;
 	}
-	
-	function insereChamado($conexao, $codatn, $codcli, $codate, $codusu, $nivpri, 
+
+	function insereChamado($conexao, $codatn, $codcli, $codate, $codusu, $nivpri,
 								$datger, $sitatn, $datprv, $datatu, $datfim, $natatn) {
-		$query = "insert into f114cab (codatn, codcli, codate, codusu, nivpri, datger, sitatn, datprv, datatu, datfim, natatn) 
+		$query = "insert into f114cab (codatn, codcli, codate, codusu, nivpri, datger, sitatn, datprv, datatu, datfim, natatn)
 					values (null, '$codcli', '$codate', '$codusu', '$nivpri', '$datger', '$sitatn', '$datprv', '$datatu', '$datfim', '$natatn')";
 		return mysqli_query($conexao, $query);
 	}
@@ -38,19 +31,19 @@
 		return mysqli_query($conexao, $query);
 	}
 
-    function alteraChamado($conexao, $codatn, $codcli, $codate, $codusu, $nivpri, 
+    function alteraChamado($conexao, $codatn, $codcli, $codate, $codusu, $nivpri,
 								$datger, $sitatn, $datprv, $datatu, $datfim, $natatn) {
-		$query = "update f114cab 
-					set codcli = '$codcli', 
-						codate = '$codate', 
-						codusu = '$codusu', 
-						nivpri = '$nivpri', 
-						datger = '$datger', 
-						sitatn = '$sitatn', 
-						datprv = '$datprv', 
-						datatu = '$datatu', 
-						datfim = '$datfim', 
-						natatn = '$natatn' 
+		$query = "update f114cab
+					set codcli = '$codcli',
+						codate = '$codate',
+						codusu = '$codusu',
+						nivpri = '$nivpri',
+						datger = '$datger',
+						sitatn = '$sitatn',
+						datprv = '$datprv',
+						datatu = '$datatu',
+						datfim = '$datfim',
+						natatn = '$natatn'
 					where codatn = '$codatn'";
 		return mysqli_query($conexao, $query);
 	}

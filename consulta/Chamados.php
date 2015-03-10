@@ -5,18 +5,17 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 
 	verificaUsuario();
-
+  if (tipoUsuario() == 'C')
+    $tipo = "Atendente";
+  else
+    $tipo = "Cliente";
 ?>
 
 <h1>Help Desk</h1>
 <table class="table table-striped table-bordered">
   <th>Código</th>
 	<th>Natureza</th>
-  <th><?php /*if (tipoUsuario() = 'C')
-    echo "Atendente"
-  else
-    echo "Cliente"
-  */?></th>
+  <th><?php echo $tipo ?></th>
   <th>Situação</th>
   <th>Geração</th>
   <th>Atualização</th>
@@ -53,7 +52,7 @@
       <td><?= $chamados['datfim'] ?></td>
 
       <td>
-				<a href="DetalheChamado.php?id=<?php echo($chamados['codatn']);?>&acao=consultar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+				<a href="Formulario/Chamado.php?id=<?php echo($chamados['codatn']);?>&acao=consultar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 			</td>
 		</tr>
 	<?php

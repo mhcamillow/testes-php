@@ -18,16 +18,18 @@
     	return $_SESSION['usuario_logado'];
     }
 
-    function logaUsuario($login) {
+    function logaUsuario($login, $codusu, $tipusu) {
     	$_SESSION['usuario_logado'] = $login;
+			$_SESSION['tipo_usuario']	  = $tipusu;
+			$_SESSION['codigo_usuario'] = $codusu;
     }
 
 		function tipoUsuario(){
 			return $_SESSION['tipo_usuario'];
 		}
 
-		function setaTipoUsuario($tipusu){
-			$_SESSION['tipo_usuario'] = $tipusu;
+		function codigoUsuario(){
+			return $_SESSION['codigo_usuario'];
 		}
 
     function logout() {

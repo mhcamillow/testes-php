@@ -1,6 +1,6 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');
-	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/sqlChamados.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/Chamados.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 
 	verificaUsuario();
@@ -36,12 +36,8 @@
       <td><?= $f114cab['datatu'] ?></td>
 
       <td>
-				<a href="mostrarChamado.php?id_usuario=<?php echo($linha['id_usuario']); ?>&acao=alterar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-				<a href="#" onclick="javascript: if(confirm('Confirma exclusão deste item?')) location.href='sqlusuario.php?id_usuario=<?php echo($linha['id_usuario']);
-        ?>&acao=excluir'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+				<a href="DetalheChamado.php?id=<?php echo($chamados['codatn']);?>&acao=consultar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 			</td>
-
-				<a href="Agendamento.php?id_cliente=<?=$cliente['id_cliente']?>" class="btn btn-primary">Alterar</a> </td>
 		</tr>
 	<?php
 		}

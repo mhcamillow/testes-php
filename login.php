@@ -1,7 +1,7 @@
-<?php 
-	include($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/conexao.php');
-	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/Usuario.php');
-	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
+<?php
+	include('Config/conexao.php');
+	require_once('banco/Usuario.php');
+	require_once('Config/controleUsuario.php');
 
 	$usuario = buscaUsuario($conexao, $_POST['login'], $_POST['password']);
 
@@ -11,8 +11,7 @@
 	} else {
 		$_SESSION['success'] = "Usuário logado com sucesso..";
 		logaUsuario($usuario['login']);
-		header("Location: consulta/Usuarios.php?");
-		//header("Location: consulta/Chamados.php?id=".$usuario['codusu']."&tip=".$usuario['tipusu']);
+		header("Location: consulta/Chamados.php?id=".$usuario['codusu']."&tip=".$usuario['tipusu']);
 	}
 
 	die();

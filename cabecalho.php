@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require_once('Config/Constantes.php');
 ?>
 
@@ -8,7 +8,7 @@
 		<title>Oficina </title>
 		<!-- Bootstrap -->
 		<link href="<?=SCRIPT_ROOT?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		
+
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -25,7 +25,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Camillo</a>
+					<a class="navbar-brand" href="#">Help Desk</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -49,7 +49,7 @@
 							</ul>
 						</li>
 					</ul>
-					
+
 					</div><!-- /.navbar-collapse -->
 					</div><!-- /.container-fluid -->
 				</nav>

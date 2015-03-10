@@ -11,7 +11,7 @@
 	} else {
 		$_SESSION['success'] = "Usuário logado com sucesso..";
 		logaUsuario($usuario['login']);
-		header("Location: consulta/Chamados.php?");
+		header("Location: consulta/Chamados.php?id=".$usuario['codusu']."&tip=".$usuario['tipusu']);
 	}
 
 	die();

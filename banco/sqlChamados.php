@@ -1,10 +1,22 @@
 <?php
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/conexao.php');
 
+  $codusu = "";
+  $tipusu  = "";
+
+  if (isset ($_GET['user']))
+    $codusu = $_GET['user'];
+
+  if (isset ($_GET['tip']))
+    $tipusu = $_GET['tip'];
+
 	function listaChamados($conexao) {
-    sql = "select * from f114cab where";
+    $sql = "select codatn, natatn, coddep, codare, codate, sitatn, datger, datprv, datatu, datfim from f114cab where 1=1";
+    if (($codusu <> 0) and ($tipusu = 'C')){
+      $sql = $sql + " and codcli='$codusu'";
+    }
 		$consultas = array();
-		$resultado = mysqli_query($conexao, sql);
+		$resultado = mysqli_query($conexao, $sql);
 
 		while($consulta = mysqli_fetch_assoc($resultado)) {
 			array_push($consultas, $consulta);

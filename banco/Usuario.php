@@ -12,10 +12,10 @@
 		
 	}
 
-	function insereUsuario($conexao, $nomusu, $senusu, $emausu, $datnas) {
+	function insereUsuario($conexao, $nomusu, $nomusu, $senusu, $emausu, $datnas) {
 		$senhaMd5 = md5($senusu);
-		$query = "insert into f999cpl (codusu, nomusu, senusu, tipusu, emausu, datnas) values (null, '$nomusu', '$senhaMd5', 'C', '$emausu', '$datnas')";
+		$query = "insert into f999cpl (codusu, nomusu, nomusu, senusu, tipusu, emausu, datnas) values (null, '$nomusu', '$nomusu', '$senhaMd5', 'C', '$emausu', '$datnas')";
 		return mysqli_query($conexao, $query);
 	}
-
+ 
 ?>

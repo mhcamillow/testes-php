@@ -55,7 +55,13 @@ require_once('cabecalho.php');
                     <div class="form-group">
                         <label for="nome" class="col-md-3 control-label">Usuário</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="nomusu" placeholder="usuario">
+                            <input type="text" class="form-control" name="nomcom" placeholder="Usuário">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nome" class="col-md-3 control-label">Login</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="nomusu" placeholder="Login">
                         </div>
                     </div>
                     <div class="form-group">

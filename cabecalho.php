@@ -25,11 +25,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-<<<<<<< HEAD
-					<a class="navbar-brand" href="<?=SCRIPT_ROOT?>/index.php">Camillo</a>
-=======
-					<a class="navbar-brand" href="#">Help Desk</a>
->>>>>>> b62a654334e05fb3a48bde201bc1e11abafeda58
+					<a class="navbar-brand" href="<?=SCRIPT_ROOT?>/index.php">Help Desk</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

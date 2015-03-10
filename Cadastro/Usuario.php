@@ -11,12 +11,7 @@
 		$codusu = $_GET['codusu'];
 
 		if ($_GET['acao'] = 'excluir'){
-			if (removeUsuario($conexao, $codusu)){
-				$_SESSION['success'] = "Removido com sucesso!";
-			}
-			else
-			{
-				$_SESSION['danger'] = "Erro ao remover!";
+			if (!removeUsuario($conexao, $codusu)){
 				echo mysql_error();
 			}
 		}
@@ -30,11 +25,7 @@
 			$emausu = $_POST['emausu'];
 			$datnas = $_POST['datnas'];
 
-			if (alteraUsuario($conexao, $codusu, $nomcom, $nomusu, $emausu, $datnas)){
-				$_SESSION['success'] = "Alterado com sucesso!";
-			}
-			else {
-				$_SESSION['danger'] = "Erro ao alterar!";
+			if (!alteraUsuario($conexao, $codusu, $nomcom, $nomusu, $emausu, $datnas)){
 				echo mysql_error();
 			}
 		} 

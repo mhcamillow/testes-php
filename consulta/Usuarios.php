@@ -34,15 +34,6 @@
 					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 				</a>
 			</td>
-			<!--
-				<a href="Agendamento.php?id_cliente=<?=$usuarios['id_cliente']?>" class="btn btn-primary">Alterar</a> </td>
-			<td>
-				<form action="RemoveConsulta.php" method="post">
-					<input type="hidden" name="id_cliente" value="<?=$usuarios['id_cliente']?>">
-					<button class="btn btn-danger">Cancelar Agendamento</a>	
-				</form>
-			</td>	
-			-->
 		</tr>
 	<?php
 		}

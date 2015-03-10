@@ -23,7 +23,7 @@
 						 'datfim' => $retorno['datfim'],
 						 'natatn' => $retorno['natatn']);
 	} else {
-		$chamado = array('codcli' => '', 'codate' => '', 'codusu' => '', 'nivpri' => '', 'datger' => '', 'sitatn' => '', 'datprv' => '', 'datatu' => '', 'datfim' => '', 'natatn' => '');
+		$chamado = array('codcli' => '', 'codate' => '', 'codusu' => '1', 'nivpri' => '', 'datger' => '', 'sitatn' => '1', 'datprv' => '', 'datatu' => '', 'datfim' => '', 'natatn' => '');
 	}
 ?>
 

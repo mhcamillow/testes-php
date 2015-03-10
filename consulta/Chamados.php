@@ -12,11 +12,11 @@
 <table class="table table-striped table-bordered">
   <th>Código</th>
 	<th>Natureza</th>
-  <th><?php if (tipoUsuario() = 'C')
+  <th><?php /*if (tipoUsuario() = 'C')
     echo "Atendente"
   else
     echo "Cliente"
-  ?></th>
+  */?></th>
   <th>Situação</th>
   <th>Geração</th>
   <th>Atualização</th>

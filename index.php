@@ -1,6 +1,10 @@
 <?php
-require_once('cabecalho.php');
+    require_once('cabecalho.php');
+    require_once('Config/controleUsuario.php');
 ?>
+<?php if(usuarioEstaLogado()) { 
+    header("Location: ".SCRIPT_ROOT."/consulta/Usuarios.php");
+} else { ?>
 <div class="container">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info" >
@@ -98,5 +102,6 @@ require_once('cabecalho.php');
         
     </div>
 </div>
+<?php } ?>
 
 <?php include('rodape.php') ?>

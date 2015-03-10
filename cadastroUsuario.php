@@ -8,9 +8,14 @@
 	$senusu = $_POST['senusu'];
 	$emausu = $_POST['emausu'];
 	$datnas = $_POST['datnas'];
-
-	insereUsuario($conexao, $nomcom, $nomusu, $senusu, $emausu, $datnas);
-    $_SESSION['success'] = "Usuário cadastrado com sucesso.";
-    header("Location:index.php");
-	die();
+	
+	if (insereUsuario($conexao, $nomcom, $nomusu, $senusu, $emausu, $datnas))
+	{
+		$_SESSION['success'] = "Usuário cadastrado com sucesso.";
+	} else {
+		$_SESSION['danger'] = "Erro ao cadastrar usuário.";
+	}
+	header("Location:index.php");
+	die();	
+    
 ?>

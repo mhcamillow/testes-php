@@ -4,10 +4,10 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/Chamados.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 	verificaUsuario();
-	
+
 	if (isset($_GET['codatn']))
 	{
-		
+
 		$codatn = $_GET['codatn'];
 		$retorno = buscaChamadoPorCodigo($conexao, $codatn);
 
@@ -23,7 +23,15 @@
 						 'datfim' => $retorno['datfim'],
 						 'natatn' => $retorno['natatn']);
 	} else {
-		$chamado = array('codcli' => '', 'codate' => '', 'codusu' => '1', 'nivpri' => '', 'datger' => '', 'sitatn' => '1', 'datprv' => '', 'datatu' => '', 'datfim' => '', 'natatn' => '');
+		$codcli = "";
+		$codate = "";
+		$codusu = codigoUsuario();
+		if (tipoUsuario() == 'C')
+			$codcli = $codusu;
+		else
+			$codate = $codusu;
+
+		$chamado = array('codcli' => $codcli, 'codate' => $codate, 'codusu' => $codusu, 'nivpri' => '', 'datger' => '', 'sitatn' => '1', 'datprv' => '', 'datatu' => '', 'datfim' => '', 'natatn' => '');
 	}
 ?>
 
@@ -37,7 +45,7 @@
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
 				<form action="<?=SCRIPT_ROOT?>/cadastro/Chamado.php" class="form-horizontal" method="post">
-					
+
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Código do chamado</label>
 						<div class="col-sm-8">
@@ -76,7 +84,7 @@
 							<input type="date" class="form-control" name="datger" placeholder="DD/MM/YYYY" value="<?=$chamado['datger']?>">
 						</div>
 					</div>
-					
+
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Situação</label>
 						<div class="col-sm-8">
@@ -130,10 +138,10 @@
 					<div style="margin-top:10px" class="form-group">
                         <!-- Button -->
                         <div class="col-sm-10 controls">
-                            <button class="btn btn-success" type="submit">Salvar alterações  </button>  
+                            <button class="btn btn-success" type="submit">Salvar alterações  </button>
                             <a href="<?=SCRIPT_ROOT?>/consulta/Chamados.php">
 								<button type="button" id="singlebutton" name="singlebutton" class="btn btn-primary">Cancelar</button>
-							</a>  
+							</a>
                         </div>
                     </div>
 				</form>

@@ -5,7 +5,7 @@
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8">
-		<title>Oficina </title>
+		<title>Help Desk </title>
 		<!-- Bootstrap -->
 		<link href="<?=SCRIPT_ROOT?>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -15,4 +15,3 @@
 		<script src="<?=SCRIPT_ROOT?>/bootstrap/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		

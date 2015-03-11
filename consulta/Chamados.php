@@ -77,7 +77,7 @@
       <td><?php switch ($chamados['sitatn']){
                 case 1: echo "Aberto"; break;
                 case 2: echo "Em Andamento"; break;
-                case 3: echo "Aguardando Aceite"; break;
+                case 3: echo "Aguardando Aprovação"; break;
                 case 4: echo "Finalizado"; break;
                 case 5: echo "Reaberto"; break;
               } ?></td>

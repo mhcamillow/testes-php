@@ -19,17 +19,17 @@ require_once('mostraAlerta.php');
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Abrir Cadastro<span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cadastros<span class="caret"></span></a>
 					<?php if (tipoUsuario() == 'C')
 					 	echo '<ul class="dropdown-menu" role="menu">
-							<li><a href="/Testes-PHP/Formulario/Chamado.php">Chamado</a></li>
+							<li><a href="/Testes-PHP/Formulario/Chamado.php">Abrir Chamado</a></li>
 						</ul>'
 					?>
 				</li>
 			</ul>
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Consultas <span class="caret"></span></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Consultas<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<?php if (tipoUsuario() != 'C')
 							echo '<li><a href="/Testes-PHP/consulta/usuarios.php">Usuário</a></li>';

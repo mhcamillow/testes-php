@@ -4,7 +4,7 @@
 ?>
 <?php if(usuarioEstaLogado()) {
     header("Location: ".SCRIPT_ROOT."/consulta/Chamados.php");
-} else { 
+} else {
     require_once('mostraAlerta.php');
     mostraAlerta('success');
     mostraAlerta('danger');
@@ -64,31 +64,31 @@
                     <div class="form-group">
                         <label for="nome" class="col-md-3 control-label">Usuário</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="nomcom" placeholder="Usuário">
+                            <input type="text" class="form-control" name="nomcom" placeholder="Usuário" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="nome" class="col-md-3 control-label">Login</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="nomusu" placeholder="Login">
+                            <input type="text" class="form-control" name="nomusu" placeholder="Login" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-md-3 control-label">Senha</label>
                         <div class="col-md-9">
-                            <input type="password" class="form-control" name="senusu" placeholder="Senha">
+                            <input type="password" class="form-control" name="senusu" placeholder="Senha" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-md-3 control-label">E-mail</label>
                         <div class="col-md-9">
-                            <input type="email" class="form-control" name="emausu" placeholder="E-mail">
+                            <input type="email" class="form-control" name="emausu" placeholder="E-mail" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label  class="col-md-3 control-label">Data de nascimento</label>
                         <div class="col-md-9">
-                            <input type="date" class="form-control" name="datnas" placeholder="DD/MM/YYYY">
+                            <input type="date" class="form-control" name="datnas" placeholder="DD/MM/YYYY" required>
                         </div>
                     </div>
 

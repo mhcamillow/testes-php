@@ -33,7 +33,7 @@
 	}
 
 	function listaUsuarios($conexao) {
-		$sql = "select codusu, nomcom, nomusu, tipusu, emausu, datnas from f999cpl";
+		$sql = "select codusu, nomcom, nomusu, tipusu, emausu, DATE_FORMAT(datnas, '%d-%m-%Y') datnas from f999cpl";
 		$usuarios = array();
 		$resultado = mysqli_query($conexao, $sql);
 

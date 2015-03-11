@@ -37,7 +37,7 @@
 	</div>
 </form>
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered table-hover">
   <th>Código</th>
 	<th>Natureza</th>
   <th><?php echo $tipo ?></th>
@@ -63,7 +63,7 @@
                 case 7: echo "Sugestão"; break;
                 case 8: echo "Treinamento"; break;
               } ?></td>
-      <td><?= $chamados['codigo'] ?></td>
+      <td><?= $chamados['nomcom'] ?></td>
       <td><?php switch ($chamados['sitatn']){
                 case 1: echo "Aberto"; break;
                 case 2: echo "Em Andamento"; break;

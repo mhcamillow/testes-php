@@ -4,11 +4,12 @@
 
 	function listaChamados($conexao, $filtro) {
 		$codusu = codigoUsuario();
-
     if (tipoUsuario() == 'C')
-			$sql = "select codatn, natatn, coddep, codare, codate as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codcli='$codusu'";
+			$sql = "select a.codatn, a.natatn, a.coddep, a.codare, a.codate, a.sitatn, a.datger, a.datprv, a.datatu, a.datfim, b.nomcom from f114cab a
+							left join f999cpl b on a.codate=b.codusu where codcli='$codusu'";
 		else
-			$sql = "select codatn, natatn, coddep, codare, codcli as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codate='$codusu' or codate=0";
+			$sql = "select a.codatn, a.natatn, a.coddep, a.codare, a.codcli, a.sitatn, a.datger, a.datprv, a.datatu, a.datfim, b.nomcom from f114cab a
+							left join f999cpl b on a.codcli=b.codusu where codate='$codusu' or codate=0";
 		if ($filtro != "")
 			$sql = $sql ." and $filtro";
 

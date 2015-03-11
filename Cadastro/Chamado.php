@@ -46,13 +46,8 @@
 				echo mysql_error();
 			}
 		} else {
-			if (insereChamado($conexao, $codcli, $codusu, $natatn)){
-				if (insereMensagemInicial($conexao, $desatn, $codusu, $codcli, $natatn)) {
-					$_SESSION['success'] = "Inserido com sucesso!";
-				}
-				else {
-					$_SESSION['danger'] = "Erro ao inserir mensagem!";
-				}
+			if (insereChamado($conexao, $codcli, $codusu, $natatn, $desatn)){
+				$_SESSION['success'] = "Inserido com sucesso!";	
 			}
 			else {
 				$_SESSION['danger'] = "Erro ao inserir!";

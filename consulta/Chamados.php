@@ -52,7 +52,7 @@
       <td><?= $chamados['datfim'] ?></td>
 
       <td>
-				<a href="Formulario/Chamado.php?id=<?php echo($chamados['codatn']);?>&acao=consultar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+				<a href="<?=SCRIPT_ROOT?>/Formulario/Chamado.php?codatn=<?php echo($chamados['codatn']);?>&acao=consultar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 			</td>
 		</tr>
 	<?php

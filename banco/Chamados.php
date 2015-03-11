@@ -19,9 +19,20 @@
 		return $consultas;
 	}
 
-	function insereChamado($conexao, $codcli, $codusu, $natatn) {
-		$query = "insert into f114cab (codatn, codcli, codusu, datger, sitatn, natatn)
-					values (null, '$codcli',  '$codusu', SYSDATE(), '1', '$natatn')";
+	function buscaChamadoPorCodigo($conexao, $codatn){
+		
+		$query = "select codatn, codcli, codate, codusu, nivpri, 
+						 datger, sitatn, datprv, datatu, datfim, natatn, desatn
+				  from f114cab 
+				  where codatn = '$codatn'";
+		$resultado = mysqli_query($conexao, $query);
+		return mysqli_fetch_assoc($resultado);
+
+	}
+
+	function insereChamado($conexao, $codcli, $codusu, $natatn, $desatn) {
+		$query = "insert into f114cab (codatn, codcli, codusu, datger, sitatn, natatn, desatn)
+					values (null, '$codcli',  '$codusu', SYSDATE(), '1', '$natatn', '$desatn')";
 		return mysqli_query($conexao, $query);
 	}
 
@@ -46,7 +57,7 @@
 					where codatn = '$codatn'";
 		return mysqli_query($conexao, $query);
 	}
-
+	/*
 	function getUltimoChamado($conexao, $codcli, $codusu, $natatn){
 		$sql = "select codatn, sitatn, nivpri
 				from f114cab 
@@ -69,4 +80,5 @@
 					values ('$codatn', '1', '$desatn', '$codcli', '0', '$sitatn', sysdate(), '$codusu', '$nivpri')";
 		return mysqli_query($conexao, $query);
 	}
+	*/
 ?>

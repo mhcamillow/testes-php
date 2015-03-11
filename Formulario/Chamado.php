@@ -23,6 +23,9 @@
 						 'natatn' => $retorno['natatn'],
 						 'desate' => $retorno['desate'],
 						 'descli' => $retorno['descli']);
+
+		if ($chamado['codate'] == '0')
+			$chamado['codate'] = $_SESSION['codigo_usuario'];
 	}
 	else
 	{
@@ -108,7 +111,7 @@
 					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'I') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Situação</label>
 						<div class="col-sm-8">
-							<select name="sitatn" class="form-control" <?php if ($chamado['sitatn'] != 3) echo 'readonly'; ?>>
+							<select name="sitatn" class="form-control" <?php if (tipoUsuario() == 'C' && $chamado['sitatn'] != 3) echo 'readonly'; ?>>
 								<option value="1" <?php if ($chamado['sitatn'] == 1) echo "selected"; ?>>Aberto </option>
 								<option value="2" <?php if ($chamado['sitatn'] == 2) echo "selected"; ?>>Em Andamento </option>
 								<option value="3" <?php if ($chamado['sitatn'] == 3) echo "selected"; ?>>Aguardando aprovação </option>
@@ -175,7 +178,7 @@
 					<div style="margin-top:10px" class="form-group">
                         <!-- Button -->
                         <div class="col-sm-10 controls">
-                            <button class="btn btn-success" <?php if ($chamado['sitatn'] == '4') echo "disabled"; ?> type="submit">Salvar alterações  </button>
+                            <button class="btn btn-success" type="submit">Salvar alterações  </button>
                             <a href="<?=SCRIPT_ROOT?>/consulta/Chamados.php">
 								<button type="button" id="singlebutton" name="singlebutton" class="btn btn-primary">Cancelar</button>
 							</a>

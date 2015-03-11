@@ -21,6 +21,7 @@
 	$desate = $_POST['desate'];
 
 
+
 	if (isset($_GET['acao']))
 	{
 
@@ -38,13 +39,27 @@
 	} else {
 		if ($codatn != '')
 		{
-			if (clienteAlteraChamado($conexao, $codatn, $sitatn, $natatn, $descli)){
-				$_SESSION['success'] = "Alterado com sucesso!";
+			if (tipoUsuario() == 'C')
+			{
+				if (clienteAlteraChamado($conexao, $codatn, $sitatn, $natatn, $descli)){
+					$_SESSION['success'] = "Alterado com sucesso!";
+				}
+				else {
+					$_SESSION['danger'] = "Erro ao alterar!";
+					echo mysql_error();
+				}	
+			} else {
+				if (alteraChamado($conexao, $codatn, $codate, $sitatn, $natatn, $datprv, $nivpri, $desate))
+				{
+					$_SESSION['success'] = "Alterado com sucesso!";
+				}
+				else
+				{
+					$_SESSION['danger'] = "Erro ao alterar!";
+					echo mysql_error();
+				}
 			}
-			else {
-				$_SESSION['danger'] = "Erro ao alterar!";
-				echo mysql_error();
-			}
+			
 		} else {
 			if (insereChamado($conexao, $codcli, $codusu, $natatn, $descli)){
 				$_SESSION['success'] = "Inserido com sucesso!";

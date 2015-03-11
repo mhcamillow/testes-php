@@ -5,18 +5,19 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 	verificaUsuario();
 	//$estados = listaEstados($conexao);
-	
+
 	if (isset($_GET['codusu']))
 	{
-		
+
 		$codusu = $_GET['codusu'];
 		$retorno = buscaUsuarioPorCodigo($conexao, $codusu);
-		
+
 		$usuario = array('codusu' => $retorno['codusu'],
 						'nomcom' => $retorno['nomcom'],
 						'nomusu' => $retorno['nomusu'],
 						'emausu' => $retorno['emausu'],
-						'datnas' => $retorno['datnas']);
+						'datnas' => $retorno['datnas'],
+						'tipusu' => $retorno['tipusu']);
 	} else {
 		$usuario = array('codusu' => '', 'nomcom' => '', 'nomusu' => '', 'emausu' => '', 'datnas' => '');
 	}
@@ -64,22 +65,30 @@
 					</div>
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Tipo de usuário</label>
-						<div class="col-sm-8">
-							<div class="btn-group" data-toggle="buttons">
-							    <label class="btn btn-default"> 
-							        <input type="radio" name="tipusu" id="tipusu" value="A" checked /> Atendente </label>
-							    <label class="btn btn-default">
-							        <input type="radio" name="tipusu" id="tipusu" value="C" /> Cliente </label>
-							</div>
-						</div>
+						<div class="col-sm-9">
+            	<div class="btn-group" data-toggle="buttons">
+                <label class= <?php if ($usuario['tipusu'] == 'A')
+																	echo '"btn btn-default active"';
+																else
+																	echo '"btn btn-default"';?>>
+                    <input type="radio" id="tipusu1" name="tipusu" value="A" /> Atendente
+                </label>
+                <label class=<?php if ($usuario['tipusu'] == 'C')
+																echo '"btn btn-default active"';
+															else
+																echo '"btn btn-default"';?>>
+                    <input type="radio" id="tipusu2" name="tipusu" value="C" /> Cliente
+                </label>
+            	</div>
+        		</div>
 					</div>
 					<div style="margin-top:10px" class="form-group">
                         <!-- Button -->
                         <div class="col-sm-12 controls">
-                            <button class="btn btn-success" type="submit">Salvar alterações  </button>  
+                            <button class="btn btn-success" type="submit">Salvar alterações  </button>
                             <a href="<?=SCRIPT_ROOT?>/consulta/Usuarios.php">
 								<button type="button" id="singlebutton" name="singlebutton" class="btn btn-primary">Cancelar</button>
-							</a>  
+							</a>
                         </div>
                     </div>
 				</form>

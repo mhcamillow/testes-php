@@ -13,7 +13,7 @@
 
 	function buscaUsuarioPorCodigo($conexao, $codusu) {
 
-		$query = "select codusu, nomcom, nomusu, tipusu, emausu, datnas from f999cpl where codusu = '$codusu'";
+		$query = "select codusu, nomcom, nomusu, tipusu, emausu, datnas, tipusu from f999cpl where codusu = '$codusu'";
 		$resultado = mysqli_query($conexao, $query);
 		return mysqli_fetch_assoc($resultado);
 
@@ -44,8 +44,8 @@
 		return $usuarios;
 	}
 
-	function alteraUsuario($conexao, $codusu, $nomcom, $nomusu, $emausu, $datnas) {
-		$query = "update f999cpl set nomcom = '$nomcom', nomusu = '$nomusu', emausu = '$emausu', datnas = '$datnas' where codusu = '$codusu'";
+	function alteraUsuario($conexao, $codusu, $nomcom, $nomusu, $emausu, $datnas, $tipusu) {
+		$query = "update f999cpl set nomcom = '$nomcom', nomusu = '$nomusu', emausu = '$emausu', datnas = '$datnas', tipusu= '$tipusu' where codusu = '$codusu'";
 		return mysqli_query($conexao, $query);
 	}
 

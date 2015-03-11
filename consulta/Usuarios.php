@@ -1,10 +1,10 @@
-<?php 
-	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');	  
+<?php
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/barraDeNavegacao.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/Usuario.php');
-	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');      
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 
-	verificaUsuario();  
+	verificaUsuario();
 ?>
 
 <h1>Usuários</h1>
@@ -17,14 +17,18 @@
 	<th>Data de Nascimento</th>
 	<th></th>
 	<?php
-		$usuarios = listaUsuarios($conexao);	
+		$usuarios = listaUsuarios($conexao);
 		foreach($usuarios as $usuario) {
 	?>
 		<tr>
 			<td><?= $usuario['codusu'] ?> </td>
 			<td><?= $usuario['nomcom'] ?> </td>
 			<td><?= $usuario['nomusu'] ?> </td>
-			<td><?= $usuario['tipusu'] ?> </td>
+			<td><?php switch ($usuario['tipusu']){
+                case 'C': echo "Cliente"; break;
+                case 'A': echo "Atendente"; break;
+                case 'M': echo "Master of Puppets"; break;
+            } ?></td>
 			<td><?= $usuario['emausu'] ?> </td>
 			<td><?= $usuario['datnas'] ?> </td>
 			<td>
@@ -41,5 +45,5 @@
 	?>
 </table>
 <div class="text-right">
-	<a href="relatorio/RelatorioConsultasPdf.php" class="btn btn-success btn-lg">Relatório</a>	
+	<a href="relatorio/RelatorioConsultasPdf.php" class="btn btn-success btn-lg">Relatório</a>
 </div>

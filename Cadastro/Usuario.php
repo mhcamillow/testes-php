@@ -1,10 +1,10 @@
 <?php
 
-	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');	  
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/Usuario.php');
-	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');      
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 
-	verificaUsuario();  
+	verificaUsuario();
 
 	if (isset($_GET['acao']))
 	{
@@ -29,15 +29,16 @@
 			$nomusu = $_POST['nomusu'];
 			$emausu = $_POST['emausu'];
 			$datnas = $_POST['datnas'];
+			$tipusu = $_POST['tipusu'];
 
-			if (alteraUsuario($conexao, $codusu, $nomcom, $nomusu, $emausu, $datnas)){
+			if (alteraUsuario($conexao, $codusu, $nomcom, $nomusu, $emausu, $datnas, $tipusu)){
 				$_SESSION['success'] = "Alterado com sucesso!";
 			}
 			else {
 				$_SESSION['danger'] = "Erro ao alterar!";
 				echo mysql_error();
 			}
-		} 
+		}
 	}
 
 	header("Location: ".SCRIPT_ROOT."/consulta/Usuarios.php");

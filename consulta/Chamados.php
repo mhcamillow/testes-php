@@ -88,6 +88,9 @@
 
       <td>
 				<a href="<?=SCRIPT_ROOT?>/Formulario/Chamado.php?codatn=<?php echo($chamados['codatn']);?>&acao=consultar"><span title="Detalhes" class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+				<a href="#" onclick="javascript: if(confirm('Confirma exclusão deste item?')) location.href='<?=SCRIPT_ROOT?>/cadastro/chamado.php?codatn=<?php echo($chamados['codatn']); ?>&acao=excluir'">
+					<span title="Excluir" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</a>
 			</td>
 		</tr>
 	<?php

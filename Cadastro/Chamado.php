@@ -26,6 +26,7 @@
 	{
 
 		if ($_GET['acao'] = 'excluir'){
+			$codatn = $_GET['codatn'];
 			if (removeChamado($conexao, $codatn)){
 				$_SESSION['success'] = "Removido com sucesso!";
 			}
@@ -47,7 +48,7 @@
 				else {
 					$_SESSION['danger'] = "Erro ao alterar!";
 					echo mysql_error();
-				}	
+				}
 			} else {
 				if (alteraChamado($conexao, $codatn, $codate, $sitatn, $natatn, $datprv, $nivpri, $desate))
 				{
@@ -59,7 +60,7 @@
 					echo mysql_error();
 				}
 			}
-			
+
 		} else {
 			if (insereChamado($conexao, $codcli, $codusu, $natatn, $descli)){
 				$_SESSION['success'] = "Inserido com sucesso!";

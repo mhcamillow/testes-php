@@ -35,8 +35,8 @@
 	}
 
 	function insereChamado($conexao, $codcli, $codusu, $natatn, $descli) {
-		$query = "insert into f114cab (codatn, codcli, codate, codusu, datger, sitatn, natatn, descli)
-					values (null, '$codcli', '0', '$codusu', SYSDATE(), '1', '$natatn', '$descli')";
+		$query = "insert into f114cab (codatn, codcli, codate, codusu, datger, sitatn, datatu, natatn, descli)
+					values (null, '$codcli', '0', '$codusu', SYSDATE(), '1', SYSDATE(), '$natatn', '$descli')";
 		return mysqli_query($conexao, $query);
 	}
 
@@ -54,7 +54,7 @@
 					      natatn = '$natatn',
 					      datfim = sysdate(),
 						  descli = '$descli'
-					  where codatn = '$codatn'";
+					  where codatn = '$codatn'";	
 		} else {
 			$query = "update f114cab
 					  set sitatn = '$sitatn',
@@ -63,8 +63,23 @@
 						  descli = '$descli'
 					  where codatn = '$codatn'";
 		}
+		
 
+		return mysqli_query($conexao, $query);
+	}
 
+	function alteraChamado($conexao, $codatn, $codate, $sitatn, $natatn, $datprv, $nivpri, $desate) {
+
+		$query = "update f114cab
+				  set codate = '$codate',
+				      sitatn = '$sitatn',
+				      natatn = '$natatn',
+				      datprv = '$datprv',
+					  nivpri = '$nivpri',
+					  desate = '$desate',
+					  datatu = sysdate()
+				  where codatn = '$codatn'";	
+	
 		return mysqli_query($conexao, $query);
 	}
 	/*

@@ -79,19 +79,23 @@
 					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Cliente</label>
 						<div class="col-sm-8">
-							<input type="number" name="codcli" class="form-control" value="<?=$chamado['codcli']?>">
+							<input type="number" name="codcli" class="form-control" readonly value="<?=$chamado['codcli']?>">
 						</div>
 					</div>
 					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Usuário</label>
 						<div class="col-sm-8">
-							<input type="number" name="codusu" class="form-control" value="<?=$chamado['codusu']?>">
+							<input type="number" name="codusu" class="form-control" readonly value="<?=$chamado['codusu']?>">
 						</div>
 					</div>
 					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Prioridade</label>
 						<div class="col-sm-8">
-							<input type="number" name="nivpri" class="form-control" value="<?=$chamado['nivpri']?>">
+							<select name="nivpri" class="form-control">
+								<option value="1" <?php if ($chamado['nivpri'] == 1) echo "selected"; ?>>Baixo </option>
+								<option value="2" <?php if ($chamado['nivpri'] == 2) echo "selected"; ?>>Médio </option>
+								<option value="3" <?php if ($chamado['nivpri'] == 3) echo "selected"; ?>>Alto </option>
+							</select>
 						</div>
 					</div>
 					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'I') echo 'style="display: none;"'; ?>>
@@ -171,7 +175,7 @@
 					<div style="margin-top:10px" class="form-group">
                         <!-- Button -->
                         <div class="col-sm-10 controls">
-                            <button class="btn btn-success" type="submit">Salvar alterações  </button>
+                            <button class="btn btn-success" <?php if ($chamado['sitatn'] == '4') echo "disabled"; ?> type="submit">Salvar alterações  </button>
                             <a href="<?=SCRIPT_ROOT?>/consulta/Chamados.php">
 								<button type="button" id="singlebutton" name="singlebutton" class="btn btn-primary">Cancelar</button>
 							</a>

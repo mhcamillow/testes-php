@@ -1,10 +1,10 @@
 <?php
 
-	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');	  
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/Chamados.php');
-	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');      
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 
-	verificaUsuario();  
+	verificaUsuario();
 
 	$codatn = $_POST['codatn'];
 	$codcli = $_POST['codcli'];
@@ -19,7 +19,7 @@
 	$natatn = $_POST['natatn'];
 	$descli = $_POST['descli'];
 	$desate = $_POST['desate'];
-		
+
 
 	if (isset($_GET['acao']))
 	{
@@ -47,7 +47,7 @@
 			}
 		} else {
 			if (insereChamado($conexao, $codcli, $codusu, $natatn, $descli)){
-				$_SESSION['success'] = "Inserido com sucesso!";	
+				$_SESSION['success'] = "Inserido com sucesso!";
 			}
 			else {
 				$_SESSION['danger'] = "Erro ao inserir!";

@@ -20,19 +20,21 @@
 ?>
 
 <form action="" method="get">
-<div class="col-sm-3">
-	<select name="sitatn" class="form-control">
-		<option value="0" <?php if ($sitatn == 0) echo "selected"; ?>> </option>
-		<option value="1" <?php if ($sitatn == 1) echo "selected"; ?>>Aberto </option>
-		<option value="2" <?php if ($sitatn == 2) echo "selected"; ?>>Em Andamento </option>
-		<option value="3" <?php if ($sitatn == 3) echo "selected"; ?>>Aguardando Aprovação </option>
-		<option value="4" <?php if ($sitatn == 4) echo "selected"; ?>>Finalizado </option>
-		<option value="5" <?php if ($sitatn == 5) echo "selected"; ?>>Reaberto </option>
-	</select>
-</div>
+	<div class="navbar-text navbar-right">
 		<button class="btn btn-success" type="submit">Filtrar</button>
 		<a href="<?=SCRIPT_ROOT?>/consulta/Chamados.php">
-</a>
+		</a>
+	</div>
+	<div class="navbar-text navbar-right">
+		<select name="sitatn" class="form-control">
+			<option value="0" <?php if ($sitatn == 0) echo "selected"; ?>> </option>
+			<option value="1" <?php if ($sitatn == 1) echo "selected"; ?>>Aberto </option>
+			<option value="2" <?php if ($sitatn == 2) echo "selected"; ?>>Em Andamento </option>
+			<option value="3" <?php if ($sitatn == 3) echo "selected"; ?>>Aguardando Aprovação </option>
+			<option value="4" <?php if ($sitatn == 4) echo "selected"; ?>>Finalizado </option>
+			<option value="5" <?php if ($sitatn == 5) echo "selected"; ?>>Reaberto </option>
+		</select>
+	</div>
 </form>
 
 <table class="table table-striped table-bordered">

@@ -11,7 +11,7 @@
 	} else {
 		$_SESSION['success'] = "Usuário logado com sucesso..";
 		logaUsuario($usuario['login'], $usuario['codusu'], $usuario['tipusu']);
-		header("Location: consulta/Chamados.php?sitatn=1,5");
+		header("Location: consulta/Chamados.php?");
 	}
 
 	die();

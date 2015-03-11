@@ -23,30 +23,29 @@
 						 'natatn' => $retorno['natatn'],
 						 'desate' => $retorno['desate'],
 						 'descli' => $retorno['descli']);
-
-	} 
-	else 
+	}
+	else
 	{
 		$tipoFormulario = 'I';
 		$codcli = "";
 		$codate = "";
 		$codusu = codigoUsuario();
-		
+
 		if (tipoUsuario() == 'C')
 			$codcli = $codusu;
 		else
 			$codate = $codusu;
 
-		$chamado = array('codcli' => $codcli, 
-						 'codate' => $codate, 
-						 'codusu' => $codusu, 
-						 'nivpri' => '', 
-						 'datger' => '', 
-						 'sitatn' => '1', 
-						 'datprv' => '', 
-						 'datatu' => '', 
-						 'datfim' => '', 
-						 'natatn' => '', 
+		$chamado = array('codcli' => $codcli,
+						 'codate' => $codate,
+						 'codusu' => $codusu,
+						 'nivpri' => '',
+						 'datger' => '',
+						 'sitatn' => '1',
+						 'datprv' => '',
+						 'datatu' => '',
+						 'datfim' => '',
+						 'natatn' => '',
 						 'desate' => '',
 						 'descli' => '');
 	}
@@ -118,7 +117,7 @@
 					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'I') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Previsão</label>
 						<div class="col-sm-8">
-							<input type="date" class="form-control" name="datprv" placeholder="DD/MM/YYYY" 
+							<input type="date" class="form-control" name="datprv" placeholder="DD/MM/YYYY"
 									<?php if (tipoUsuario() == 'C') echo 'readonly'; ?> value="<?=$chamado['datprv']?>">
 						</div>
 					</div>
@@ -164,7 +163,7 @@
 					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'I') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Descrição</label>
 						<div class="col-sm-8">
-							<textarea class="form-control" rows="3" name="desate" placeholder="Resposta" 
+							<textarea class="form-control" rows="3" name="desate" placeholder="Resposta"
 									<?php if (tipoUsuario() == 'C') echo 'readonly'; ?> ><?=$chamado['desate']?></textarea>
 						</div>
 					</div>

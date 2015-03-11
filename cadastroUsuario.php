@@ -9,12 +9,20 @@
 	$emausu = $_POST['emausu'];
 	$datnas = $_POST['datnas'];
 	
-	if (insereUsuario($conexao, $nomcom, $nomusu, $senusu, $emausu, $datnas))
+	if (loginExistente($conexao, $nomusu))
 	{
-		$_SESSION['success'] = "Usuário cadastrado com sucesso.";
-	} else {
-		$_SESSION['danger'] = "Erro ao cadastrar usuário.";
+		$_SESSION['danger'] = "Este login já está sendo utilizado.";
 	}
+	else
+	{
+		if (insereUsuario($conexao, $nomcom, $nomusu, $senusu, $emausu, $datnas))
+		{
+			$_SESSION['success'] = "Usuário cadastrado com sucesso.";
+		} else {
+			$_SESSION['danger'] = "Erro ao cadastrar usuário.";
+		}	
+	}
+
 	header("Location:index.php");
 	die();	
     

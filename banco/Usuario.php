@@ -19,6 +19,13 @@
 
 	}
 
+	function loginExistente($conexao, $nomusu){
+		$query = "select count(*) as qtd from f999cpl where nomusu = '$nomusu'";
+		$resultado = mysqli_query($conexao, $query);
+		$r = mysqli_fetch_assoc($resultado);
+		return ($r['qtd'] > 0);
+	}
+
 	function insereUsuario($conexao, $nomcom, $nomusu, $senusu, $emausu, $datnas) {
 		$senhaMd5 = md5($senusu);
 		$query = "insert into f999cpl (codusu, nomcom, nomusu, senusu, tipusu, emausu, datnas) values (null, '$nomcom', '$nomusu', '$senhaMd5', 'C', '$emausu', '$datnas')";

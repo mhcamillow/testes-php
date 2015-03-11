@@ -21,7 +21,9 @@
 						 'datatu' => $retorno['datatu'],
 						 'datfim' => $retorno['datfim'],
 						 'natatn' => $retorno['natatn'],
-						 'desatn' => $retorno['desatn']);
+						 'desate' => $retorno['desate'],
+						 'descli' => $retorno['descli']);
+
 	} 
 	else 
 	{
@@ -45,7 +47,8 @@
 						 'datatu' => '', 
 						 'datfim' => '', 
 						 'natatn' => '', 
-						 'desatn' => '');
+						 'desate' => '',
+						 'descli' => '');
 	}
 ?>
 
@@ -153,8 +156,16 @@
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Descrição</label>
 						<div class="col-sm-8">
-							<textarea class="form-control" rows="3" name="desatn" placeholder="Descreva o motivo do chamado" 
-									<?php if ($tipoFormulario == 'I') echo 'required'; else echo 'readonly'; ?>></textarea>
+							<textarea class="form-control" rows="3" name="descli" placeholder="Descreva o motivo do chamado"
+									<?php if (tipoUsuario() == 'A') echo 'readonly'; ?> ><?=$chamado['descli']?></textarea>
+						</div>
+					</div>
+
+					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'I') echo 'style="display: none;"'; ?>>
+						<label class="col-sm-3 control-label">Descrição</label>
+						<div class="col-sm-8">
+							<textarea class="form-control" rows="3" name="desate" placeholder="Resposta" 
+									<?php if (tipoUsuario() == 'C') echo 'readonly'; ?> ><?=$chamado['desate']?></textarea>
 						</div>
 					</div>
 

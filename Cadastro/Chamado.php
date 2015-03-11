@@ -17,7 +17,8 @@
 	$datatu = $_POST['datatu'];
 	$datfim = $_POST['datfim'];
 	$natatn = $_POST['natatn'];
-	$desatn = $_POST['desatn'];
+	$descli = $_POST['descli'];
+	$desate = $_POST['desate'];
 		
 
 	if (isset($_GET['acao']))
@@ -37,8 +38,7 @@
 	} else {
 		if ($codatn != '')
 		{
-			if (alteraChamado($conexao, $codcli, $codate, $codusu, $nivpri,
-								$datger, $sitatn, $datprv, $datatu, $datfim, $natatn)){
+			if (clienteAlteraChamado($conexao, $codatn, $natatn, $descli)){
 				$_SESSION['success'] = "Alterado com sucesso!";
 			}
 			else {
@@ -46,7 +46,7 @@
 				echo mysql_error();
 			}
 		} else {
-			if (insereChamado($conexao, $codcli, $codusu, $natatn, $desatn)){
+			if (insereChamado($conexao, $codcli, $codusu, $natatn, $descli)){
 				$_SESSION['success'] = "Inserido com sucesso!";	
 			}
 			else {

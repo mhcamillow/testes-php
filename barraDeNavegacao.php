@@ -29,8 +29,8 @@ require_once('mostraAlerta.php');
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Consultas <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<?php if (tipoUsuario() != 'C')
-							'<li><a href="<?=SCRIPT_ROOT?>/consulta/usuarios.php">Usuário</a></li>';
+						<?php if ($_SESSION['tipo_usuario'] != 'C')
+							echo '<li><a href="<?=SCRIPT_ROOT?>/consulta/usuarios.php">Usuário</a></li>';
 						?>
 						<li><a href="<?=SCRIPT_ROOT?>/consulta/Chamados.php">Chamado</a></li>
 						<!--<li><a href="#">Cliente</a></li>

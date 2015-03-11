@@ -5,10 +5,12 @@
 	function listaChamados($conexao, $filtro) {
 		$codusu = codigoUsuario();
     if (tipoUsuario() == 'C')
-			$sql = "select a.codatn, a.natatn, a.coddep, a.codare, a.codate, a.sitatn, a.datger, a.datprv, a.datatu, a.datfim, b.nomcom from f114cab a
+			$sql = "select a.codatn, a.natatn, a.coddep, a.codare, a.codate, a.sitatn, DATE_FORMAT(a.datger, '%d-%m-%Y') datger, DATE_FORMAT(a.datprv, '%d-%m-%Y') datprv,
+							DATE_FORMAT(a.datatu,'%d-%m-%Y') datatu, DATE_FORMAT(a.datfim, '%d-%m-%Y') datfim, b.nomcom from f114cab a
 							left join f999cpl b on a.codate=b.codusu where codcli='$codusu'";
 		else
-			$sql = "select a.codatn, a.natatn, a.coddep, a.codare, a.codcli, a.sitatn, a.datger, a.datprv, a.datatu, a.datfim, b.nomcom from f114cab a
+			$sql = "select a.codatn, a.natatn, a.coddep, a.codare, a.codcli, a.sitatn, DATE_FORMAT(a.datger, '%d-%m-%Y') datger, DATE_FORMAT(a.datprv, '%d-%m-%Y') datprv,
+							DATE_FORMAT(a.datatu,'%d-%m-%Y') datatu, DATE_FORMAT(a.datfim, '%d-%m-%Y') datfim, b.nomcom from f114cab a
 							left join f999cpl b on a.codcli=b.codusu where (codate='$codusu' or codate=0)";
 		if ($filtro != "")
 			$sql = $sql ." and $filtro";

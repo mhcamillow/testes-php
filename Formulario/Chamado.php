@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/barraDeNavegacao.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/Chamados.php');
@@ -37,10 +37,9 @@
 		// atendente
 		} else {
 			if (($retorno['sitatn'] == 1) or ($retorno['sitatn'] == 5)){//atender chamado
-				$tipoFormulario = 'M';
-
-				if ($chamado['codate'] == '0')
-					$chamado['codate'] = $_SESSION['codigo_usuario'];
+				$tipoFormulario = 'A';
+        $chamado['sitatn'] = '2';
+        $chamado['codate'] = $_SESSION['codigo_usuario'];
 
 			} elseif ($retorno['sitatn'] == 2){ // mensagem / alterar status
 				$tipoFormulario = 'C';
@@ -87,33 +86,33 @@
 
 				<form action="<?=SCRIPT_ROOT?>/cadastro/Chamado.php" class="form-horizontal" method="post">
 
-					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
+					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Código do chamado</label>
 						<div class="col-sm-8">
 							<input type="number" name="codatn" class="form-control" readonly value="<?=$chamado['codatn']?>">
 						</div>
 					</div>
 
-					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
+					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Código do atendente</label>
 						<div class="col-sm-8">
 							<input type="number" name="codate" class="form-control" readonly value="<?=$chamado['codate']?>">
 						</div>
 					</div>
 
-					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
+					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Cliente</label>
 						<div class="col-sm-8">
 							<input type="number" name="codcli" class="form-control" readonly value="<?=$chamado['codcli']?>">
 						</div>
 					</div>
-					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
+					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Usuário</label>
 						<div class="col-sm-8">
 							<input type="number" name="codusu" class="form-control" readonly value="<?=$chamado['codusu']?>">
 						</div>
 					</div>
-					<div class="form-group" <?php if (tipoUsuario() == 'C') echo 'style="display: none;"'; ?>>
+					<div class="form-group" <?php if ($tipoFormulario == 'A' or $tipoFormulario == 'M' or $tipoFormulario == 'V') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Prioridade</label>
 						<div class="col-sm-8">
 							<select name="nivpri" class="form-control">
@@ -123,14 +122,14 @@
 							</select>
 						</div>
 					</div>
-					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
+					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Data da Geração</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" name="datger" placeholder="DD/MM/YYYY" readonly value="<?=$chamado['datger']?>">
 						</div>
 					</div>
 
-					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
+					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Situação</label>
 						<div class="col-sm-8">
 							<select name="sitatn" class="form-control" <?php if (tipoUsuario() == 'C' && $chamado['sitatn'] != 3) echo 'readonly'; ?>>
@@ -151,14 +150,14 @@
 						</div>
 					</div>
 
-					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
+					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Última movimentação</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" name="datatu" placeholder="DD/MM/YYYY" readonly value="<?=$chamado['datatu']?>">
 						</div>
 					</div>
 
-					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
+					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Finalização</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" name="datfim" placeholder="DD/MM/YYYY" readonly value="<?=$chamado['datfim']?>">

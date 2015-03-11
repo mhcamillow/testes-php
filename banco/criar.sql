@@ -63,6 +63,8 @@ CREATE TABLE F114CAB #Cabeçalho do chamado
 	DATFIM DATE, # muda ao finalizar
 	CODGRP INT(8), # nulo
 	NATATN INT(2) # 1 duvida 2 erro 3 exigencia legal 4 implantação 5 implementação 6 serviço 7 sugestão 8 treinamento
+  DESATE VARCHAR(1000),
+  DESCLI VARCHAR(1000)
    );
 
 CREATE TABLE F114MSG #Mensagem do chamado

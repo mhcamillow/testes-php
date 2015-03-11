@@ -132,12 +132,21 @@
 					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Situação</label>
 						<div class="col-sm-8">
-							<select name="sitatn" class="form-control" <?php if (tipoUsuario() == 'C' && $chamado['sitatn'] != 3) echo 'readonly'; ?>>
-								<option value="1" <?php if ($chamado['sitatn'] == 1) echo "selected"; ?>>Aberto </option>
-								<option value="2" <?php if ($chamado['sitatn'] == 2) echo "selected"; ?>>Em Andamento </option>
-								<option value="3" <?php if ($chamado['sitatn'] == 3) echo "selected"; ?>>Aguardando aprovação </option>
-								<option value="4" <?php if ($chamado['sitatn'] == 4) echo "selected"; ?>>Finalizado </option>
-								<option value="5" <?php if ($chamado['sitatn'] == 5) echo "selected"; ?>>Reaberto </option>
+							<select name="sitatn" class="form-control">
+                                <?php if (tipoUsuario() == 'A' && $chamado['sitatn'] == 2){
+                                        echo '<option value="1"'; if ($chamado['sitatn'] == 1) echo "selected"; echo '>Aberto </option>'; 
+                                        echo '<option value="2"'; if ($chamado['sitatn'] == 2) echo "selected"; echo '>Em Andamento </option>';
+                                        echo '<option value="3"'; if ($chamado['sitatn'] == 3) echo "selected"; echo '>Aguardando aprovação </option>';
+                                      }
+                                      if (tipoUsuario() == 'A' && $chamado['sitatn'] == 3)
+                                        echo '<option value="3"'; if ($chamado['sitatn'] == 3) echo "selected"; echo '>Aguardando aprovação </option>';
+                                      if (tipoUsuario() == 'C' && $chamado['sitatn'] == 3){
+                                        echo '<option value="4"'; if ($chamado['sitatn'] == 4) echo "selected"; echo '>Finalizado </option>';
+                                        echo '<option value="5"'; if ($chamado['sitatn'] == 5) echo "selected"; echo '>Reaberto </option>';
+                                      }
+                                      if ($chamado['sitatn'] == 4)
+                                        echo '<option value="4"'; if ($chamado['sitatn'] == 4) echo "selected"; echo '>Finalizado </option>';                                      
+                                ?>
 							</select>
 						</div>
 					</div>

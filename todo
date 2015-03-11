@@ -1,10 +1,6 @@
 Trabalho:
 
 Sistema
-	* Login 
 	* Cadastro com no minimo 7 campos(text,number,CheckBox,Radio)
-	* Listar
-	* Incluir,Excluir,Alterar
 	* Gerar Relatorios em PDF
-	* Sessao
 	* Este cadastro deve usar a UF

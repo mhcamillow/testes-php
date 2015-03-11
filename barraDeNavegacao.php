@@ -1,5 +1,6 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
+require_once('mostraAlerta.php');
 ?>
 
 <nav class="navbar navbar-default">

@@ -1,5 +1,7 @@
 <?php
 	require_once('Config/Constantes.php');
+	require_once('Config/controleUsuario.php');
+	
 ?>
 
 <html lang="pt-br">

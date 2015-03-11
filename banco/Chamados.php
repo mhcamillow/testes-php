@@ -41,9 +41,10 @@
 		return mysqli_query($conexao, $query);
 	}
 
-    function clienteAlteraChamado($conexao, $codatn, $natatn, $descli) {
+    function clienteAlteraChamado($conexao, $codatn, $sitatn, $natatn, $descli) {
 		$query = "update f114cab
-					set datatu = sysdate(),
+					set sitatn = '$sitatn',
+					    datatu = sysdate(),
 						natatn = '$natatn',
 						descli = '$descli'
 					where codatn = '$codatn'";

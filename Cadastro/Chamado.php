@@ -38,7 +38,7 @@
 	} else {
 		if ($codatn != '')
 		{
-			if (clienteAlteraChamado($conexao, $codatn, $natatn, $descli)){
+			if (clienteAlteraChamado($conexao, $codatn, $sitatn, $natatn, $descli)){
 				$_SESSION['success'] = "Alterado com sucesso!";
 			}
 			else {

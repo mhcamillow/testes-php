@@ -112,7 +112,7 @@
 							<input type="number" name="codusu" class="form-control" readonly value="<?=$chamado['codusu']?>">
 						</div>
 					</div>
-					<div class="form-group" <?php if ($tipoFormulario == 'A' or $tipoFormulario == 'M' or $tipoFormulario == 'V') echo 'style="display: none;"'; ?>>
+					<div class="form-group" <?php if ((tipoUsuario() == 'C' and $tipoFormulario == 'A') or $tipoFormulario == 'M' or $tipoFormulario == 'V') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Prioridade</label>
 						<div class="col-sm-8">
 							<select name="nivpri" class="form-control">

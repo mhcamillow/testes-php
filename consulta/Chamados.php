@@ -39,6 +39,7 @@
 
 <table class="table table-striped table-bordered table-hover">
   <th>Código</th>
+  <?php if (tipoUsuario() != 'C') echo "<th>Prioridade</th>" ?>
 	<th>Natureza</th>
   <th><?php echo $tipo ?></th>
   <th>Situação</th>
@@ -53,6 +54,15 @@
 	?>
 		<tr>
       <td><?= $chamados['codatn'] ?></td>
+      <?php if (tipoUsuario() != 'C'){
+                switch ($chamados['nivpri']){
+                    case 1: echo "<td>Baixa</td>"; break;
+                    case 2: echo "<td>Média</td>"; break;
+                    case 3: echo "<td>Alta</td>"; break;
+                    default: echo "<td></td>";
+                }
+            }
+      ?>
       <td><?php switch ($chamados['natatn']){
                 case 1: echo "Dúvida"; break;
                 case 2: echo "Erro"; break;

@@ -10,7 +10,7 @@
 		else
 			$sql = "select codatn, natatn, coddep, codare, codcli as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codate='$codusu' or codate=0";
 		if ($filtro != "")
-			$sql = $sql ." and " .$filtro;
+			$sql = $sql ." and $filtro";
 
 		$consultas = array();
 		$resultado = mysqli_query($conexao, $sql);

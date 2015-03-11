@@ -93,7 +93,6 @@
                             <button id="btn-signup" type="submit" class="btn btn-info"><i class="icon-hand-right"></i> &nbsp Cadastrar</button>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>

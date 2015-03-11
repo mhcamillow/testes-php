@@ -49,7 +49,7 @@
 
     function clienteAlteraChamado($conexao, $codatn, $sitatn, $natatn, $descli) {
 
-		if ($sitatn = '5'){
+		if ($sitatn == '5'){
 			$query = "update f114cab
 					  set sitatn = '$sitatn',
 					      datatu = sysdate(),

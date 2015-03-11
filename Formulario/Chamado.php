@@ -38,8 +38,9 @@
 		} else {
 			if (($retorno['sitatn'] == 1) or ($retorno['sitatn'] == 5)){//atender chamado
 				$tipoFormulario = 'A';
-        $chamado['sitatn'] = '2';
-        $chamado['codate'] = $_SESSION['codigo_usuario'];
+        
+        		$chamado['sitatn'] = '2';
+        		$chamado['codate'] = $_SESSION['codigo_usuario'];
 
 			} elseif ($retorno['sitatn'] == 2){ // mensagem / alterar status
 				$tipoFormulario = 'C';
@@ -133,29 +134,35 @@
 						<label class="col-sm-3 control-label">Situação</label>
 						<div class="col-sm-8">
 							<select name="sitatn" class="form-control">
-                <?php
-								if ($chamado['sitatn'] == 1)
-                	echo '<option value="1"'; if ($chamado['sitatn'] == 1) echo "selected"; echo '>Aberto </option>';
-								if (tipoUsuario() == 'C' && $chamado['sitatn'] == 2)
-                	echo '<option value="2"'; if ($chamado['sitatn'] == 2) echo "selected"; echo '>Em Andamento </option>';
-								if ($chamado['sitatn'] == 4)
-                	echo '<option value="4"'; if ($chamado['sitatn'] == 4) echo "selected"; echo '>Finalizado </option>';
-								if ($chamado['sitatn'] == 5)
-	               	echo '<option value="5"'; if ($chamado['sitatn'] == 5) echo "selected"; echo '>Reaberto </option>';
-								if ($chamado['sitatn'] == 3)
-	              	echo '<option value="3"'; if ($chamado['sitatn'] == 3) echo "selected"; echo '>Aguardando aprovação </option>';
+                				<?php
+									if ($chamado['sitatn'] == 1)
+										echo '<option value="1" selected >Aberto </option>';
+									
+									if (tipoUsuario() == 'C' && $chamado['sitatn'] == 2)
+                						echo '<option value="2" selected>Em Andamento </option>'; 
+								
+            						if ($chamado['sitatn'] == 3)
+	              						echo '<option value="3" selected>Aguardando aprovação </option>'; 
 
-								if (tipoUsuario() == 'A' && $chamado['sitatn'] == 2){
-                  echo '<option value="1"'; if ($chamado['sitatn'] == 1) echo "selected"; echo '>Aberto </option>';
-                  echo '<option value="2"'; if ($chamado['sitatn'] == 2) echo "selected"; echo '>Em Andamento </option>';
-                  echo '<option value="3"'; if ($chamado['sitatn'] == 3) echo "selected"; echo '>Aguardando aprovação </option>';
-                }
+									if ($chamado['sitatn'] == 4)
+                						echo '<option value="4" selected>Finalizado </option>'; 
+								
+									if ($chamado['sitatn'] == 5)
+	               						echo '<option value="5" selected>Reaberto </option>';
+								
+									if (tipoUsuario() == 'A' && $chamado['sitatn'] == 2)
+									{
+                  						echo '<option value="1">Aberto </option>';
+                  						echo '<option value="2" selected>Em Andamento </option>';
+                  						echo '<option value="3">Aguardando aprovação </option>';
+	                				}
 
-                if (tipoUsuario() == 'C' && $chamado['sitatn'] == 3){
-									echo '<option value="4"'; if ($chamado['sitatn'] == 4) echo "selected"; echo '>Finalizado </option>';
-                  echo '<option value="5"'; if ($chamado['sitatn'] == 5) echo "selected"; echo '>Reaberto </option>';
-                }
-	              ?>
+	                				if (tipoUsuario() == 'C' && $chamado['sitatn'] == 3)
+	                				{
+										echo '<option value="4">Finalizado </option>';
+	                  					echo '<option value="5">Reaberto </option>';
+	                				}
+	              				?>
 							</select>
 						</div>
 					</div>

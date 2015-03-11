@@ -46,12 +46,25 @@
 	}
 
     function clienteAlteraChamado($conexao, $codatn, $sitatn, $natatn, $descli) {
-		$query = "update f114cab
-					set sitatn = '$sitatn',
-					    datatu = sysdate(),
-						natatn = '$natatn',
-						descli = '$descli'
-					where codatn = '$codatn'";
+
+		if ($sitatn = '5'){
+			$query = "update f114cab
+					  set sitatn = '$sitatn',
+					      datatu = sysdate(),
+					      natatn = '$natatn',
+					      datfim = sysdate(),
+						  descli = '$descli'
+					  where codatn = '$codatn'";	
+		} else {
+			$query = "update f114cab
+					  set sitatn = '$sitatn',
+					      datatu = sysdate(),
+					      natatn = '$natatn',
+						  descli = '$descli'
+					  where codatn = '$codatn'";
+		}
+		
+
 		return mysqli_query($conexao, $query);
 	}
 	/*

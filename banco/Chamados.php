@@ -54,7 +54,7 @@
 					      natatn = '$natatn',
 					      datfim = sysdate(),
 						  descli = '$descli'
-					  where codatn = '$codatn'";	
+					  where codatn = '$codatn'";
 		} else {
 			$query = "update f114cab
 					  set sitatn = '$sitatn',
@@ -63,7 +63,7 @@
 						  descli = '$descli'
 					  where codatn = '$codatn'";
 		}
-		
+
 
 		return mysqli_query($conexao, $query);
 	}

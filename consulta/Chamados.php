@@ -72,8 +72,8 @@
                 case 5: echo "Reaberto"; break;
               } ?></td>
       <td><?= $chamados['datger'] ?></td>
-      <td><?= $chamados['datprv'] ?></td>
       <td><?= $chamados['datatu'] ?></td>
+      <td><?= $chamados['datprv'] ?></td>
       <td><?= $chamados['datfim'] ?></td>
 
       <td>

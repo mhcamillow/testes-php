@@ -38,7 +38,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php')
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<p class="navbar-text">Logado como <?php echo $_SESSION['usuario_logado'] ?></p>
+				<p class="navbar-text">Olá, <?php echo $_SESSION['nome_usuario'] ?></p>
 				<li><a href="<?=SCRIPT_ROOT?>/Config/Logout.php">Logout</a></li>
 			</ul>
 

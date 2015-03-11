@@ -9,7 +9,7 @@
 							left join f999cpl b on a.codate=b.codusu where codcli='$codusu'";
 		else
 			$sql = "select a.codatn, a.natatn, a.coddep, a.codare, a.codcli, a.sitatn, a.datger, a.datprv, a.datatu, a.datfim, b.nomcom from f114cab a
-							left join f999cpl b on a.codcli=b.codusu where codate='$codusu' or codate=0";
+							left join f999cpl b on a.codcli=b.codusu where (codate='$codusu' or codate=0)";
 		if ($filtro != "")
 			$sql = $sql ." and $filtro";
 
@@ -54,7 +54,7 @@
 					      natatn = '$natatn',
 					      datfim = sysdate(),
 						  descli = '$descli'
-					  where codatn = '$codatn'";	
+					  where codatn = '$codatn'";
 		} else {
 			$query = "update f114cab
 					  set sitatn = '$sitatn',
@@ -63,7 +63,7 @@
 						  descli = '$descli'
 					  where codatn = '$codatn'";
 		}
-		
+
 
 		return mysqli_query($conexao, $query);
 	}
@@ -78,8 +78,8 @@
 					  nivpri = '$nivpri',
 					  desate = '$desate',
 					  datatu = sysdate()
-				  where codatn = '$codatn'";	
-	
+				  where codatn = '$codatn'";
+
 		return mysqli_query($conexao, $query);
 	}
 	/*

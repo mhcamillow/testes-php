@@ -34,8 +34,8 @@
 	}
 
 	function insereChamado($conexao, $codcli, $codusu, $natatn, $descli) {
-		$query = "insert into f114cab (codatn, codcli, codusu, datger, sitatn, natatn, descli)
-					values (null, '$codcli',  '$codusu', SYSDATE(), '1', '$natatn', '$descli')";
+		$query = "insert into f114cab (codatn, codcli, codate, codusu, datger, sitatn, natatn, descli)
+					values (null, '$codcli', '0', '$codusu', SYSDATE(), '1', '$natatn', '$descli')";
 		return mysqli_query($conexao, $query);
 	}
 

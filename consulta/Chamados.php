@@ -14,7 +14,7 @@
 	$sitatn= 0;
 	if (isset($_GET['sit'])){
 		$sitatn = $_GET['sit'];
-		$filtro = "sitatn=$sit";
+		$filtro = "sitatn='$sit'";
 	}
 ?>
 

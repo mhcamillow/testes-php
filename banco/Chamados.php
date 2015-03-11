@@ -8,7 +8,7 @@
     if (tipoUsuario() == 'C')
 			$sql = "select codatn, natatn, coddep, codare, codate as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codcli='$codusu'";
 		else
-			$sql = "select codatn, natatn, coddep, codare, codcli as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codate='$codusu'";
+			$sql = "select codatn, natatn, coddep, codare, codcli as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codate='$codusu' or codate=0";
 		if ($filtro != "")
 			$sql = $sql ." and " .$filtro;
 

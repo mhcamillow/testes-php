@@ -2,13 +2,16 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/conexao.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 
-	function listaChamados($conexao) {
+	function listaChamados($conexao, $filtro) {
 		$codusu = codigoUsuario();
 
     if (tipoUsuario() == 'C')
 			$sql = "select codatn, natatn, coddep, codare, codate as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codcli='$codusu'";
-		elseif ($tipusu == 'D')
+		else
 			$sql = "select codatn, natatn, coddep, codare, codcli as codigo, sitatn, datger, datprv, datatu, datfim from f114cab where codate='$codusu'";
+		if ($filtro != "")
+			$sql = $sql ." and " .$filtro;
+
 		$consultas = array();
 		$resultado = mysqli_query($conexao, $sql);
 
@@ -20,10 +23,10 @@
 	}
 
 	function buscaChamadoPorCodigo($conexao, $codatn){
-		
-		$query = "select codatn, codcli, codate, codusu, nivpri, 
+
+		$query = "select codatn, codcli, codate, codusu, nivpri,
 						 datger, sitatn, datprv, datatu, datfim, natatn, desate, descli
-				  from f114cab 
+				  from f114cab
 				  where codatn = '$codatn'";
 		$resultado = mysqli_query($conexao, $query);
 		return mysqli_fetch_assoc($resultado);
@@ -53,7 +56,7 @@
 	/*
 	function getUltimoChamado($conexao, $codcli, $codusu, $natatn){
 		$sql = "select codatn, sitatn, nivpri
-				from f114cab 
+				from f114cab
 				where codcli = '$codusu'
 				  and codusu = '$codusu'
 				  and natatn = '$natatn'";

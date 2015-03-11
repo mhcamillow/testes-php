@@ -1,5 +1,5 @@
-<?php 
-require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php'); 
+<?php
+require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 ?>
 
 <nav class="navbar navbar-default">
@@ -28,7 +28,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php')
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Consultas <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
-						<li><a href="<?=SCRIPT_ROOT?>/consulta/usuarios.php">Usuário</a></li>
+						<?php if (tipoUsuario() != 'C')
+							'<li><a href="<?=SCRIPT_ROOT?>/consulta/usuarios.php">Usuário</a></li>';
+						?>
 						<li><a href="<?=SCRIPT_ROOT?>/consulta/Chamados.php">Chamado</a></li>
 						<!--<li><a href="#">Cliente</a></li>
 						<li><a href="#">Veículo</a></li> -->

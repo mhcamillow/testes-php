@@ -9,9 +9,31 @@
     $tipo = "Atendente";
   else
     $tipo = "Cliente";
+
+	$filtro = "";
+	$sitatn= 0;
+	if (isset($_GET['sit'])){
+		$sitatn = $_GET['sit'];
+		$filtro = "sitatn=$sit";
+	}
 ?>
 
-<h1>Help Desk</h1>
+<form action="" method="get">
+<div class="col-sm-3">
+	<select name="sit" class="form-control">
+		<option value="0" <?php if ($sitatn == 0) echo "selected"; ?>> </option>
+		<option value="1" <?php if ($sitatn == 1) echo "selected"; ?>>Aberto </option>
+		<option value="2" <?php if ($sitatn == 2) echo "selected"; ?>>Em Andamento </option>
+		<option value="3" <?php if ($sitatn == 3) echo "selected"; ?>>Aguardando aprovação </option>
+		<option value="4" <?php if ($sitatn == 4) echo "selected"; ?>>Finalizado </option>
+		<option value="5" <?php if ($sitatn == 5) echo "selected"; ?>>Reaberto </option>
+	</select>
+</div>
+		<button class="btn btn-success" type="submit">Filtrar</button>
+		<a href="<?=SCRIPT_ROOT?>/consulta/Chamados.php">
+</a>
+</form>
+
 <table class="table table-striped table-bordered">
   <th>Código</th>
 	<th>Natureza</th>
@@ -23,7 +45,7 @@
   <th>Conclusão</th>
   <th></th>
 	<?php
-		$chamados = listaChamados($conexao);
+		$chamados = listaChamados($conexao, $filtro);
 		foreach($chamados as $chamados) {
 	?>
 		<tr>
@@ -52,10 +74,15 @@
       <td><?= $chamados['datfim'] ?></td>
 
       <td>
-				<a href="<?=SCRIPT_ROOT?>/Formulario/Chamado.php?codatn=<?php echo($chamados['codatn']);?>&acao=consultar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+				<a href="<?=SCRIPT_ROOT?>/Formulario/Chamado.php?id=<?php echo($chamados['codatn']);?>&acao=consultar"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 			</td>
 		</tr>
 	<?php
 		}
 	?>
 </table>
+<!--
+<div class="text-right">
+	<a href="relatorio/RelatorioConsultasPdf.php" class="btn btn-success btn-lg">Relatório</a>
+</div>
+-->

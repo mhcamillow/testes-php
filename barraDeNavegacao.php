@@ -28,7 +28,6 @@ require_once('mostraAlerta.php');
 			</ul>'
 			?>
 
-
 			<ul class="nav navbar-nav">
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Consultas<span class="caret"></span></a>
@@ -42,6 +41,16 @@ require_once('mostraAlerta.php');
 					</ul>
 				</li>
 			</ul>
+
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Relatórios<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="<?=SCRIPT_ROOT?>/relatorios/Chamados.php">Chamados</a></li>
+					</ul>
+				</li>
+			</ul>
+
 			<ul class="nav navbar-nav navbar-right">
 				<p class="navbar-text">Olá, <?php echo $_SESSION['nome_usuario'] ?></p>
 				<li><a href="<?=SCRIPT_ROOT?>/Config/Logout.php">Logout</a></li>

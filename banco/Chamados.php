@@ -4,12 +4,54 @@
 
 	function listaChamados($conexao, $filtro) {
 		$codusu = codigoUsuario();
-    if (tipoUsuario() == 'C')
-			$sql = "select a.nivpri, a.codatn, a.natatn, a.coddep, a.codare, a.codate, a.sitatn, DATE_FORMAT(a.datger, '%d-%m-%Y') datger, DATE_FORMAT(a.datprv, '%d-%m-%Y') datprv,
-							DATE_FORMAT(a.datatu,'%d-%m-%Y') datatu, DATE_FORMAT(a.datfim, '%d-%m-%Y') datfim, b.nomcom from f114cab a
-							left join f999cpl b on a.codate=b.codusu where codcli='$codusu'";
+    	if (tipoUsuario() == 'C')
+			//$sql = "select a.nivpri, a.codatn, a.natatn, a.coddep, a.codare, a.codate, a.sitatn, DATE_FORMAT(a.datger, '%d-%m-%Y') datger, DATE_FORMAT(a.datprv, '%d-%m-%Y') datprv,
+			//				DATE_FORMAT(a.datatu,'%d-%m-%Y') datatu, DATE_FORMAT(a.datfim, '%d-%m-%Y') datfim, b.nomcom from f114cab a
+			//				left join f999cpl b on a.codate=b.codusu where codcli='$codusu'";
+			//1 duvida 2 erro 3 exigencia legal 4 implantação 5 implementação 6 serviço 7 sugestão 8 treinamento
+			$sql = "select a.codatn, 
+							CASE a.nivpri WHEN '1' THEN 'Baixo' 
+							  			  WHEN '2' THEN 'Medio' 
+							 			  WHEN '3' THEN 'Alto' 
+							END as nivpri, 
+						    CASE a.natatn WHEN '1' THEN 'Duvida' 
+							  			  WHEN '2' THEN 'Erro' 
+							 			  WHEN '3' THEN 'Exigencia legal'
+							 			  WHEN '4' THEN 'Implantacao'
+							 			  WHEN '5' THEN 'Implementacao'
+							 			  WHEN '6' THEN 'Servico'
+							 			  WHEN '7' THEN 'Sugestao'
+							 			  WHEN '8' THEN 'Treinamento'
+							END as natatn, a.coddep, a.codare, a.codate,
+							CASE  a.sitatn WHEN '1' THEN 'Aberto'
+							               WHEN '2' THEN 'Em andamento'
+							               WHEN '3' THEN 'Aguardando aceite'
+							               WHEN '4' THEN 'Finalizado'
+							               WHEN '5' THEN 'Reaberto'
+							END as sitatn, DATE_FORMAT(a.datger, '%d-%m-%Y') datger, DATE_FORMAT(a.datprv, '%d-%m-%Y') datprv,
+							DATE_FORMAT(a.datatu,'%d-%m-%Y') datatu, DATE_FORMAT(a.datfim, '%d-%m-%Y') datfim, b.nomcom 
+					from f114cab a left join f999cpl b on a.codate=b.codusu where codcli='$codusu'";
 		else
-			$sql = "select a.nivpri, a.codatn, a.natatn, a.coddep, a.codare, a.codcli, a.sitatn, DATE_FORMAT(a.datger, '%d-%m-%Y') datger, DATE_FORMAT(a.datprv, '%d-%m-%Y') datprv,
+			$sql = "select a.codatn, 
+							CASE a.nivpri WHEN '1' THEN 'Baixo' 
+							  			  WHEN '2' THEN 'Medio' 
+							 			  WHEN '3' THEN 'Alto' 
+							END as nivpri, 
+						    CASE a.natatn WHEN '1' THEN 'Duvida' 
+							  			  WHEN '2' THEN 'Erro' 
+							 			  WHEN '3' THEN 'Exigencia legal'
+							 			  WHEN '4' THEN 'Implantacao'
+							 			  WHEN '5' THEN 'Implementacao'
+							 			  WHEN '6' THEN 'Servico'
+							 			  WHEN '7' THEN 'Sugestao'
+							 			  WHEN '8' THEN 'Treinamento'
+							END as natatn, a.coddep, a.codare, a.codcli, 
+							CASE  a.sitatn WHEN '1' THEN 'Aberto'
+							               WHEN '2' THEN 'Em andamento'
+							               WHEN '3' THEN 'Aguardando aceite'
+							               WHEN '4' THEN 'Finalizado'
+							               WHEN '5' THEN 'Reaberto'
+							END as sitatn, DATE_FORMAT(a.datger, '%d-%m-%Y') datger, DATE_FORMAT(a.datprv, '%d-%m-%Y') datprv,
 							DATE_FORMAT(a.datatu,'%d-%m-%Y') datatu, DATE_FORMAT(a.datfim, '%d-%m-%Y') datfim, b.nomcom from f114cab a
 							left join f999cpl b on a.codcli=b.codusu where (codate='$codusu' or codate=0)";
 		if ($filtro != "")

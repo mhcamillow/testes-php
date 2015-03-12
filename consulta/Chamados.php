@@ -54,33 +54,12 @@
 	?>
 		<tr>
       <td><?= $chamados['codatn'] ?></td>
-      <?php if (tipoUsuario() != 'C'){
-                switch ($chamados['nivpri']){
-                    case 1: echo "<td>Baixa</td>"; break;
-                    case 2: echo "<td>Média</td>"; break;
-                    case 3: echo "<td>Alta</td>"; break;
-                    default: echo "<td></td>";
-                }
-            }
+      <?php if (tipoUsuario() != 'C')
+        echo "<td>".$chamados['nivpri']."</td>"
       ?>
-      <td><?php switch ($chamados['natatn']){
-                case 1: echo "Dúvida"; break;
-                case 2: echo "Erro"; break;
-                case 3: echo "Exigência Legal"; break;
-                case 4: echo "Implantação"; break;
-                case 5: echo "Implementação"; break;
-                case 6: echo "Serviço"; break;
-                case 7: echo "Sugestão"; break;
-                case 8: echo "Treinamento"; break;
-              } ?></td>
+      <td><?= $chamados['natatn'] ?></td>
       <td><?= $chamados['nomcom'] ?></td>
-      <td><?php switch ($chamados['sitatn']){
-                case 1: echo "Aberto"; break;
-                case 2: echo "Em Andamento"; break;
-                case 3: echo "Aguardando Aprovação"; break;
-                case 4: echo "Finalizado"; break;
-                case 5: echo "Reaberto"; break;
-              } ?></td>
+      <td><?= $chamados['sitatn'] ?></td>
       <td><?= $chamados['datger'] ?></td>
       <td><?= $chamados['datatu'] ?></td>
       <td><?= $chamados['datprv'] ?></td>

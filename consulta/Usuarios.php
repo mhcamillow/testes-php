@@ -7,7 +7,7 @@
 	verificaUsuario();
 ?>
 
-<h1>Usuários</h1>
+<h1 align="center">Usuários</h1>
 <table class="table table-striped table-bordered">
 	<th>Código</th>
 	<th>Nome</th>
@@ -33,10 +33,10 @@
 			<td><?= $usuario['datnas'] ?> </td>
 			<td>
 				<a href="<?=SCRIPT_ROOT?>/Formulario/Usuario.php?codusu=<?php echo($usuario['codusu']); ?>&acao=alterar">
-					<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+					<span title = 'Editar' class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 				</a>
 				<a href="#" onclick="javascript: if(confirm('Confirma exclusão deste item?')) location.href='<?=SCRIPT_ROOT?>/cadastro/Usuario.php?codusu=<?php echo($usuario['codusu']); ?>&acao=excluir'">
-					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					<span title = 'Excluir' class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 				</a>
 			</td>
 		</tr>
@@ -44,6 +44,3 @@
 		}
 	?>
 </table>
-<div class="text-right">
-	<a href="relatorio/RelatorioConsultasPdf.php" class="btn btn-success btn-lg">Relatório</a>
-</div>

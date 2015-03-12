@@ -25,7 +25,7 @@
 							END as natatn, a.coddep, a.codare, a.codate,
 							CASE  a.sitatn WHEN '1' THEN 'Aberto'
 							               WHEN '2' THEN 'Em andamento'
-							               WHEN '3' THEN 'Aguardando aceite'
+							               WHEN '3' THEN 'Aguardando Aprovação'
 							               WHEN '4' THEN 'Finalizado'
 							               WHEN '5' THEN 'Reaberto'
 							END as sitatn, DATE_FORMAT(a.datger, '%d-%m-%Y') datger, DATE_FORMAT(a.datprv, '%d-%m-%Y') datprv,

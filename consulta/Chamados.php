@@ -41,6 +41,7 @@
   <th>Código</th>
   <?php if (tipoUsuario() != 'C') echo "<th>Prioridade</th>" ?>
 	<th>Natureza</th>
+	<th>Departamento</th>
   <th><?php echo $tipo ?></th>
   <th>Situação</th>
   <th>Geração</th>
@@ -58,6 +59,7 @@
         echo "<td>".$chamados['nivpri']."</td>"
       ?>
       <td><?= $chamados['natatn'] ?></td>
+			<td><?= $chamados['desdep'] ?></td>
       <td><?= $chamados['nomcom'] ?></td>
       <td><?= $chamados['sitatn'] ?></td>
       <td><?= $chamados['datger'] ?></td>

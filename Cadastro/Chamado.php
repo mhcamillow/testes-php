@@ -19,6 +19,7 @@
 	$natatn = $_POST['natatn'];
 	$descli = $_POST['descli'];
 	$desate = $_POST['desate'];
+	$coddep = $_POST['coddep'];
 
 
 
@@ -62,7 +63,7 @@
 			}
 
 		} else {
-			if (insereChamado($conexao, $codcli, $codusu, $natatn, $descli)){
+			if (insereChamado($conexao, $codcli, $codusu, $natatn, $descli, $coddep)){
 				$_SESSION['success'] = "Inserido com sucesso!";
 			}
 			else {

@@ -2,6 +2,7 @@
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/cabecalho.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/barraDeNavegacao.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/Chamados.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/banco/Departamento.php');
 	require_once($_SERVER['DOCUMENT_ROOT'].'/Testes-PHP/Config/controleUsuario.php');
 	verificaUsuario();
 
@@ -21,7 +22,8 @@
 						 'datfim' => $retorno['datfim'],
 						 'natatn' => $retorno['natatn'],
 						 'desate' => $retorno['desate'],
-						 'descli' => $retorno['descli']);
+						 'descli' => $retorno['descli'],
+						 'coddep' => $retorno['coddep']);
 		// cliente
 		if (tipoUsuario() == 'C'){
 			if (($retorno['sitatn'] == 1) or ($retorno['sitatn'] == 2) or ($retorno['sitatn'] == 5)){ //apenas nova mensagem
@@ -38,7 +40,7 @@
 		} else {
 			if (($retorno['sitatn'] == 1) or ($retorno['sitatn'] == 5)){//atender chamado
 				$tipoFormulario = 'A';
-        
+
         		$chamado['sitatn'] = '2';
         		$chamado['codate'] = $_SESSION['codigo_usuario'];
 
@@ -93,7 +95,23 @@
 							<input type="number" name="codatn" class="form-control" readonly value="<?=$chamado['codatn']?>">
 						</div>
 					</div>
-
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Departamento</label>
+						<div class="col-sm-8">
+							<select class="form-control" name="coddep" <?php if ($tipoFormulario != 'A') echo 'readonly'; ?>>
+								<option value=""></option>
+								<?php
+								$departamento = listaDepartamentos($conexao);
+								foreach($departamento as $departamento) {
+			  					echo("<option value='".$departamento['coddep']."' ");
+									if ($departamento['coddep'] == $chamado['coddep'])
+										echo("SELECTED");
+			  					echo(">".$departamento['desdep']."</option>");
+								}
+								?>
+							</select>
+						</div>
+					</div>
 					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Código do atendente</label>
 						<div class="col-sm-8">
@@ -133,23 +151,23 @@
 					<div class="form-group" <?php if ($tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
 						<label class="col-sm-3 control-label">Situação</label>
 						<div class="col-sm-8">
-							<select name="sitatn" class="form-control">
+							<select <?php if ($tipoFormulario == 'V') echo 'readonly'; ?> name="sitatn" class="form-control">
                 				<?php
 									if ($chamado['sitatn'] == 1)
 										echo '<option value="1" selected >Aberto </option>';
-									
+
 									if (tipoUsuario() == 'C' && $chamado['sitatn'] == 2)
-                						echo '<option value="2" selected>Em Andamento </option>'; 
-								
+                						echo '<option value="2" selected>Em Andamento </option>';
+
             						if ($chamado['sitatn'] == 3)
-	              						echo '<option value="3" selected>Aguardando aprovação </option>'; 
+	              						echo '<option value="3" selected>Aguardando aprovação </option>';
 
 									if ($chamado['sitatn'] == 4)
-                						echo '<option value="4" selected>Finalizado </option>'; 
-								
+                						echo '<option value="4" selected>Finalizado </option>';
+
 									if ($chamado['sitatn'] == 5)
 	               						echo '<option value="5" selected>Reaberto </option>';
-								
+
 									if (tipoUsuario() == 'A' && $chamado['sitatn'] == 2)
 									{
                   						echo '<option value="1">Aberto </option>';
@@ -171,7 +189,7 @@
 						<label class="col-sm-3 control-label">Previsão</label>
 						<div class="col-sm-8">
 							<input type="date" class="form-control" name="datprv" placeholder="DD/MM/YYYY"
-									<?php if (tipoUsuario() == 'C') echo 'readonly'; ?> value="<?=$chamado['datprv']?>">
+									<?php if (tipoUsuario() == 'C' or $tipoFormulario == 'V') echo 'readonly'; ?> value="<?=$chamado['datprv']?>">
 						</div>
 					</div>
 
@@ -206,18 +224,18 @@
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-3 control-label">Descrição</label>
+						<label class="col-sm-3 control-label">Pergunta</label>
 						<div class="col-sm-8">
 							<textarea class="form-control" rows="3" name="descli" placeholder="Descreva o motivo do chamado"
-									<?php if (tipoUsuario() == 'A') echo 'readonly'; ?> ><?=$chamado['descli']?></textarea>
+									<?php if (tipoUsuario() == 'A' or $tipoFormulario == 'V') echo 'readonly'; ?> ><?=$chamado['descli']?></textarea>
 						</div>
 					</div>
 
 					<div class="form-group" <?php if (tipoUsuario() == 'C' && $tipoFormulario == 'A') echo 'style="display: none;"'; ?>>
-						<label class="col-sm-3 control-label">Descrição</label>
+						<label class="col-sm-3 control-label">Resposta</label>
 						<div class="col-sm-8">
 							<textarea class="form-control" rows="3" name="desate" placeholder="Resposta"
-									<?php if (tipoUsuario() == 'C') echo 'readonly'; ?> ><?=$chamado['desate']?></textarea>
+									<?php if (tipoUsuario() == 'C' or $tipoFormulario == 'V') echo 'readonly'; ?> ><?=$chamado['desate']?></textarea>
 						</div>
 					</div>
 

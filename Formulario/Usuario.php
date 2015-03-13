@@ -19,7 +19,7 @@
 						'datnas' => $retorno['datnas'],
 						'tipusu' => $retorno['tipusu']);
 	} else {
-		$usuario = array('codusu' => '', 'nomcom' => '', 'nomusu' => '', 'emausu' => '', 'datnas' => '');
+		$usuario = array('codusu' => '', 'nomcom' => '', 'nomusu' => '', 'emausu' => '', 'datnas' => '', 'tipusu' => '');
 	}
 ?>
 
@@ -71,13 +71,13 @@
 																	echo '"btn btn-default active"';
 																else
 																	echo '"btn btn-default"';?>>
-                    <input type="radio" id="tipusu1" name="tipusu" value="A" /> Atendente
+                    <input type="radio" id="tipusu1" name="tipusu" value="A" <?php if ($usuario['tipusu'] == 'A') echo 'checked="checked"'?>/> Atendente
                 </label>
                 <label class=<?php if ($usuario['tipusu'] == 'C')
 																echo '"btn btn-default active"';
 															else
 																echo '"btn btn-default"';?>>
-                    <input type="radio" id="tipusu2" name="tipusu" value="C" /> Cliente
+                    <input type="radio" id="tipusu2" name="tipusu" value="C" <?php if ($usuario['tipusu'] == 'C') echo 'checked="checked"'?> /> Cliente
                 </label>
             	</div>
         		</div>

@@ -19,7 +19,9 @@
 	}
 ?>
 
+<div class="container-fluid"
 <form action="" method="get">
+	<h1 align="center">Chamados</h1>
 	<div class="navbar-text navbar-right">
 		<button class="btn btn-success" type="submit">Filtrar</button>
 		<a href="<?=SCRIPT_ROOT?>/consulta/Chamados.php">
@@ -36,8 +38,8 @@
 		</select>
 	</div>
 </form>
-
-<table class="table table-striped table-bordered table-hover">
+</div>
+<table data-toggle="table" class="table table-striped table-bordered table-hover">
   <th>Código</th>
   <?php if (tipoUsuario() != 'C') echo "<th>Prioridade</th>" ?>
 	<th>Natureza</th>

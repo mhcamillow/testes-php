@@ -66,5 +66,5 @@ require_once('mostraAlerta.php');
 			mostraAlerta('success');
 			mostraAlerta('danger');
 		?>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="principal">

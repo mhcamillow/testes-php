@@ -19,7 +19,7 @@
 	//$pdf->Image($logotipo,5,10,"png");  // Incluindo imagem
 
 	$pdf->Ln(1);
-	$pdf-> SetFont('Arial','',12);
+	$pdf-> SetFont('Arial','',11);
 	
 
 	$pdf->Ln(1);
@@ -27,14 +27,14 @@
 	//Cabeçalho
 	$pdf -> Cell (1,	1,	'Cod.',			1,	0,	'C'); //Width, Height, Text, Border, (0-1-2), Align
 	$pdf -> Cell (2,	1,	'Prioridade',	1,	0,	'C');
-	$pdf -> Cell (4,	1,	'Natureza',		1,	0,	'L');
+	$pdf -> Cell (3,	1,	'Natureza',		1,	0,	'L');
 	
 	if (tipoUsuario() != 'C')
 		$pdf -> Cell (5,	1,	' Cliente',		1,	0,	'L');
 	else 
 		$pdf -> Cell (5,	1,	' Atendente',		1,	0,	'L');
 
-	$pdf -> Cell (4,	1,	' Situacao',		1,	0,	'L');
+	$pdf -> Cell (5,	1,	' Situacao',		1,	0,	'L');
 	$pdf -> Cell (3,	1,	'Geracao',		1,	0,	'C');
 	$pdf -> Cell (3,	1,	'Atualizacao',	1,	0,	'C');
 	$pdf -> Cell (3,	1,	'Previsao',		1,	0,	'C');
@@ -46,9 +46,9 @@
 		
 		$pdf -> Cell (1,	1,	$chamado['codatn'],	1,	0,	'C'); //Width, Height, Text, Border, (0-1-2), Align
 		$pdf -> Cell (2,	1,	$chamado['nivpri'],	1,	0,	'C');
-		$pdf -> Cell (4,	1,	$chamado['natatn'],	1,	0,	'L');
+		$pdf -> Cell (3,	1,	$chamado['natatn'],	1,	0,	'L');
 		$pdf -> Cell (5,	1,	' '.$chamado['nomcom'],	1,	0,	'L');
-		$pdf -> Cell (4,	1,	' '.$chamado['sitatn'],	1,	0,	'L');
+		$pdf -> Cell (5,	1,	' '.$chamado['sitatn'],	1,	0,	'L');
 		$pdf -> Cell (3,	1,	$chamado['datger'],	1,	0,	'C');
 		$pdf -> Cell (3,	1,	$chamado['datatu'],	1,	0,	'C');
 		$pdf -> Cell (3,	1,	$chamado['datprv'],	1,	0,	'C');

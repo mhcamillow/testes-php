@@ -19,7 +19,7 @@
 	}
 ?>
 
-<div class="container-fluid"
+<div class="container-fluid">
 <form action="" method="get">
 	<h1 align="center">Chamados</h1>
 	<div class="navbar-text navbar-right">
